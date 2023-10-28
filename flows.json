@@ -1,5 +1,562 @@
 [
     {
+        "id": "ebd8f5340c6273c3",
+        "type": "tab",
+        "label": "Sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "24f9243dbd52b679",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "label": "Loudness",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff0011",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 680,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4399b7593c764c1b",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/info",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "edda3f7cdd526cbb"
+            ]
+        ]
+    },
+    {
+        "id": "edda3f7cdd526cbb",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "944737aae379529e",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3d590b596f9b51c7",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "944737aae379529e"
+            ]
+        ]
+    },
+    {
+        "id": "62757772b120edfd",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/samplerate",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "15b1f6acb97b55d0"
+            ]
+        ]
+    },
+    {
+        "id": "523efa8ad715f1a0",
+        "type": "ui_text",
+        "z": "ebd8f5340c6273c3",
+        "group": "44de918663ff4cd7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sample rate",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "15b1f6acb97b55d0",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 1",
+        "func": "const rate = Number(msg.payload);\nconst kHz = Math.round(rate / 100) / 10;\n\nreturn { payload: `${kHz}kHz`};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "523efa8ad715f1a0"
+            ]
+        ]
+    },
+    {
+        "id": "347d1bafc55aa006",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 5,
+        "width": "6",
+        "height": "8",
+        "label": "Frequency",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "8000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#fb096a",
+            "#06a22d",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efea7e35fe4aec2e",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/event",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "a96a60716ed2f303",
+                "f788b392b17cc6c0"
+            ]
+        ]
+    },
+    {
+        "id": "a96a60716ed2f303",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Split event",
+        "func": "const now = new Date();\nconst startOfDay = new Date();\n\nstartOfDay.setHours(0, 0, 0, 0);\n\nconst secondsSinceStartOfDay = (now.getTime() - startOfDay.getTime()) / 1000;\n// Add timestamp to the payload\nmsg.payload.timestamp = secondsSinceStartOfDay;\n\nconst msg1 = { \n    payload: msg.payload.loudness, \n    topic: 'Loudness'\n};\n\nconst msg2 = {\n    payload: msg.payload.peak,\n    topic: 'Frequency'\n};\n\n\nreturn [msg, msg1, msg2];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "93a23cf2fcc8b945"
+            ],
+            [
+                "24f9243dbd52b679"
+            ],
+            [
+                "347d1bafc55aa006"
+            ]
+        ]
+    },
+    {
+        "id": "7d0eef1e3a8816ad",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Set filename",
+        "func": "const pad = (number, length) => {\n  return String(number).padStart(length, '0');\n};\n\nconst date = new Date();\nconst year = date.getFullYear();\nconst month = pad(date.getMonth() + 1, 2); // Months in JavaScript are zero-indexed\nconst day = pad(date.getDate(), 2);\n\nconst datestamp = `${year}-${month}-${day}`;\n\nconst filename = `audio_log_${datestamp}.csv`;\nmsg.filename = `/home/pi/audio_files/${filename}`;\nmsg.content = msg.payload;\nmsg.payload = {pattern: filename};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 60,
+        "wires": [
+            [
+                "b472f36406b131d8"
+            ]
+        ]
+    },
+    {
+        "id": "b472f36406b131d8",
+        "type": "fs-file-lister",
+        "z": "ebd8f5340c6273c3",
+        "name": "File exists?",
+        "start": "/home/pi/audio_files",
+        "pattern": "*.*",
+        "folders": "*",
+        "hidden": true,
+        "lstype": "files",
+        "path": true,
+        "single": true,
+        "depth": 0,
+        "stat": true,
+        "showWarnings": true,
+        "x": 1150,
+        "y": 60,
+        "wires": [
+            [
+                "0f1be36cb1ad173e"
+            ]
+        ]
+    },
+    {
+        "id": "0f1be36cb1ad173e",
+        "type": "switch",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "property": "$count(msg.payload)",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 220,
+        "wires": [
+            [
+                "c14821fe966108b4"
+            ],
+            [
+                "d82b3bcc50eebfc2"
+            ]
+        ]
+    },
+    {
+        "id": "c14821fe966108b4",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "713a836752aa0ec1"
+            ]
+        ]
+    },
+    {
+        "id": "d82b3bcc50eebfc2",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 260,
+        "wires": [
+            [
+                "ad32195cf683346a"
+            ]
+        ]
+    },
+    {
+        "id": "713a836752aa0ec1",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 180,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
+        "id": "ad32195cf683346a",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 260,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
+        "id": "2daa8cfdb4025066",
+        "type": "file",
+        "z": "ebd8f5340c6273c3",
+        "name": "Write to file",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1290,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93a23cf2fcc8b945",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Filter",
+        "func": "const loudness = context.get(\"loudness\") || 0;\nconst peak = context.get('peak') || 0;\nif (msg.payload.loudness !== loudness || msg.payload.peak !== peak) {\n    context.set('loudness', msg.payload.loudness);\n    context.set('peak', msg.payload.peak);\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 60,
+        "wires": [
+            [
+                "7d0eef1e3a8816ad"
+            ]
+        ]
+    },
+    {
+        "id": "f788b392b17cc6c0",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5c98c0436f6c8c59",
+        "type": "inject",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "a18d824648b9f4f3"
+            ]
+        ]
+    },
+    {
+        "id": "a18d824648b9f4f3",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 2",
+        "func": "const now = new Date();\nconst seconds = now.getSeconds();\nif (seconds === 0) {\n    const hours = now.getHours().toString().padStart(2,'0');\n    const minutes = now.getMinutes().toString().padStart(2,'0');\n    const offset = now.getTimezoneOffset();\n    const isDST = offset === -60;\n    const timeZone = isDST ? \"BST\" : \"GMT\";\n    msg.payload = `${hours}:${minutes} ${timeZone} ${offset}`;\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "c682544b934fbae8"
+            ]
+        ]
+    },
+    {
         "id": "c682544b934fbae8",
         "type": "mqtt out",
         "z": "ebd8f5340c6273c3",
@@ -16,6 +573,17 @@
         "x": 640,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "44de918663ff4cd7",
+        "type": "ui_group",
+        "name": "Sensor",
+        "tab": "dde4ad20d7f5adb6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "38e902423e538381",
@@ -47,5 +615,13 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "dde4ad20d7f5adb6",
+        "type": "ui_tab",
+        "name": "Build Brighton",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]
