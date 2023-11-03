@@ -1,5 +1,3016 @@
 [
     {
+        "id": "6632116403e2e61f",
+        "type": "tab",
+        "label": "Intercom Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3fb3daf03c16c4aa",
+        "type": "tab",
+        "label": "Devices",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9cf3a6d.1104258",
+        "type": "tab",
+        "label": "Raspberry monitoring",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ebd8f5340c6273c3",
+        "type": "tab",
+        "label": "Sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "40c70371ebc05361",
+        "type": "tab",
+        "label": "Alexa Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "38e902423e538381",
+        "type": "mqtt-broker",
+        "name": "bbautomation",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dde4ad20d7f5adb6",
+        "type": "ui_tab",
+        "name": "Build Brighton",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "75c33eb13b040290",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "bb89cea21e2c6873",
+        "type": "ui_group",
+        "name": "Intercom",
+        "tab": "dde4ad20d7f5adb6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a1927dc69f45eb27",
+        "type": "discord-token",
+        "name": "BB Intercom"
+    },
+    {
+        "id": "9cb4bc4d.96552",
+        "type": "ui_group",
+        "name": "System",
+        "tab": "dde4ad20d7f5adb6",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "58f8c24c9a9fdac1",
+        "type": "ui_group",
+        "name": "Devices",
+        "tab": "dde4ad20d7f5adb6",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "44de918663ff4cd7",
+        "type": "ui_group",
+        "name": "Sensor",
+        "tab": "dde4ad20d7f5adb6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4fdef95ca19166b9",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ef083c55a861a6cf",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "/intercom/active",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "4fdef95ca19166b9",
+                "315ccb297c34d985",
+                "bb1d82dc729bc399"
+            ]
+        ]
+    },
+    {
+        "id": "315ccb297c34d985",
+        "type": "ui_led",
+        "z": "6632116403e2e61f",
+        "order": 5,
+        "group": "bb89cea21e2c6873",
+        "width": "4",
+        "height": "4",
+        "label": "Intercom",
+        "labelPlacement": "right",
+        "labelAlignment": "center",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "1",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 310,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cd9c0e1c014de82e",
+        "type": "discordMessageManager",
+        "z": "6632116403e2e61f",
+        "name": "Send message",
+        "channel": "1160625220114190376",
+        "token": "a1927dc69f45eb27",
+        "x": 1000,
+        "y": 80,
+        "wires": [
+            [
+                "12db2d4f1533249e"
+            ]
+        ]
+    },
+    {
+        "id": "291fc624af70d41c",
+        "type": "inject",
+        "z": "6632116403e2e61f",
+        "name": "Test Discord",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "bb3eb3420294ae4c"
+            ]
+        ]
+    },
+    {
+        "id": "12db2d4f1533249e",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bb1d82dc729bc399",
+        "type": "switch",
+        "z": "6632116403e2e61f",
+        "name": "If active",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "84b7b0e10895ffaa",
+                "cbc64914ec54a77f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "84b7b0e10895ffaa",
+        "type": "change",
+        "z": "6632116403e2e61f",
+        "name": "Timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 80,
+        "wires": [
+            [
+                "bb3eb3420294ae4c"
+            ]
+        ]
+    },
+    {
+        "id": "bb3eb3420294ae4c",
+        "type": "moment",
+        "z": "6632116403e2e61f",
+        "name": "Ding-dong",
+        "topic": "",
+        "input": "",
+        "inputType": "msg",
+        "inTz": "Europe/London",
+        "adjAmount": 0,
+        "adjType": "days",
+        "adjDir": "add",
+        "format": "[DING-DONG @ ]HH:mm:ss",
+        "locale": "en-GB",
+        "output": "",
+        "outputType": "msg",
+        "outTz": "Europe/London",
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "cd9c0e1c014de82e"
+            ]
+        ]
+    },
+    {
+        "id": "2b543d1a16a8c323",
+        "type": "ui_button",
+        "z": "6632116403e2e61f",
+        "name": "Door bell",
+        "group": "bb89cea21e2c6873",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Ding-Dong!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "cbc64914ec54a77f"
+            ]
+        ]
+    },
+    {
+        "id": "99556b35bed64ba4",
+        "type": "inject",
+        "z": "6632116403e2e61f",
+        "name": "Test blink",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "2b543d1a16a8c323"
+            ]
+        ]
+    },
+    {
+        "id": "e5b31fe8833c27a0",
+        "type": "inject",
+        "z": "6632116403e2e61f",
+        "name": "Test intercom",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "bb1d82dc729bc399"
+            ]
+        ]
+    },
+    {
+        "id": "ff414b533ecc6796",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/CleanRoom/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "6e9a8cc2cff53407",
+                "365e32bb1f96cb47"
+            ]
+        ]
+    },
+    {
+        "id": "6e9a8cc2cff53407",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "365e32bb1f96cb47",
+        "type": "ui_led",
+        "z": "6632116403e2e61f",
+        "order": 2,
+        "group": "bb89cea21e2c6873",
+        "width": 0,
+        "height": 0,
+        "label": "Clean room light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 370,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ea87beb123cfa21a",
+        "type": "inject",
+        "z": "6632116403e2e61f",
+        "name": "BlinkCount",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "str",
+        "x": 110,
+        "y": 660,
+        "wires": [
+            [
+                "2d4d5630891b366a",
+                "037b8ecc5b3114c9",
+                "615bedc1d06ebf8d"
+            ]
+        ]
+    },
+    {
+        "id": "72103f5e92a5c1f4",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/CleanRoom/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 860,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cbc64914ec54a77f",
+        "type": "change",
+        "z": "6632116403e2e61f",
+        "name": "Blink",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "BLINK",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "72103f5e92a5c1f4",
+                "031798345fa21d35",
+                "aaea4fb66f0aca6d"
+            ]
+        ]
+    },
+    {
+        "id": "8c2bd23c49ad822b",
+        "type": "inject",
+        "z": "6632116403e2e61f",
+        "name": "Blink Time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "str",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            [
+                "a0a76ccd8f5ece03",
+                "9f746031f8edc01c",
+                "bbe28fd7cf6f4d25"
+            ]
+        ]
+    },
+    {
+        "id": "a0a76ccd8f5ece03",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/CleanRoom/BlinkTime",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 920,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a0351b764bb58b62",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/CleanRoom/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "6e9a8cc2cff53407",
+                "365e32bb1f96cb47"
+            ]
+        ]
+    },
+    {
+        "id": "2d4d5630891b366a",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/CleanRoom/BlinkCount",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 390,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "037b8ecc5b3114c9",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Woodwork/BlinkCount",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 380,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "615bedc1d06ebf8d",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Metalwork/BlinkCount",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 380,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "9f746031f8edc01c",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Woodwork/BlinkTime",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 920,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "bbe28fd7cf6f4d25",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Metalwork/BlinkTime",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 920,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "031798345fa21d35",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Woodwork/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "aaea4fb66f0aca6d",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Metalwork/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 850,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c58276166a6d3494",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Woodwork/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [
+                "c64f4e7d89bd1506",
+                "cf4e64a1ac2911dc"
+            ]
+        ]
+    },
+    {
+        "id": "c64f4e7d89bd1506",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cf4e64a1ac2911dc",
+        "type": "ui_led",
+        "z": "6632116403e2e61f",
+        "order": 3,
+        "group": "bb89cea21e2c6873",
+        "width": 0,
+        "height": 0,
+        "label": "Woodwork light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 810,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "242aa3b65357b1d8",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Woodwork/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "c64f4e7d89bd1506",
+                "cf4e64a1ac2911dc"
+            ]
+        ]
+    },
+    {
+        "id": "5bc0cba4d316ff77",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Metalwork/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1020,
+        "y": 460,
+        "wires": [
+            [
+                "a8581b2797103e2c",
+                "dbc1e4dcb8d7cf5f"
+            ]
+        ]
+    },
+    {
+        "id": "a8581b2797103e2c",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "dbc1e4dcb8d7cf5f",
+        "type": "ui_led",
+        "z": "6632116403e2e61f",
+        "order": 4,
+        "group": "bb89cea21e2c6873",
+        "width": 0,
+        "height": 0,
+        "label": "Metalwork light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1270,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b5b7e43fa9a96260",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Metalwork/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1020,
+        "y": 520,
+        "wires": [
+            [
+                "a8581b2797103e2c",
+                "dbc1e4dcb8d7cf5f"
+            ]
+        ]
+    },
+    {
+        "id": "d2d12d6e02c44874",
+        "type": "ui_button",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Clean Room",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 40,
+        "wires": [
+            [
+                "31079664172c794b"
+            ]
+        ]
+    },
+    {
+        "id": "31079664172c794b",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/CleanRoom/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 480,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8d4cac3538e9d39a",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "d2d12d6e02c44874"
+            ]
+        ]
+    },
+    {
+        "id": "be9bd0992cc8c93d",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/CleanRoom/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 330,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "183d0574f40c426f",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "be9bd0992cc8c93d"
+            ]
+        ]
+    },
+    {
+        "id": "990dc276d9198043",
+        "type": "comment",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Query device status",
+        "info": "",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dbfe681b3296fb26",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CleanRoom/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "74b1fd0ad939eed8"
+            ]
+        ]
+    },
+    {
+        "id": "e50673a7037a29b2",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "tele/CleanRoom/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "b8d083e53b9572c8"
+            ]
+        ]
+    },
+    {
+        "id": "964019a886067cb6",
+        "type": "ui_button",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Woodwork",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "97f923e0c14bdc05"
+            ]
+        ]
+    },
+    {
+        "id": "97f923e0c14bdc05",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Woodwork/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 470,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "335be86a1c0e44de",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 380,
+        "wires": [
+            [
+                "964019a886067cb6"
+            ]
+        ]
+    },
+    {
+        "id": "9244b0acfac6e690",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Woodwork/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 330,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "07db3bc056dc50cc",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 100,
+        "y": 460,
+        "wires": [
+            [
+                "9244b0acfac6e690"
+            ]
+        ]
+    },
+    {
+        "id": "10cd4231211aea98",
+        "type": "comment",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Query device status",
+        "info": "",
+        "x": 110,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "32251afed0887854",
+        "type": "ui_button",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Metalwork",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 970,
+        "y": 40,
+        "wires": [
+            [
+                "88324d9150d7b608"
+            ]
+        ]
+    },
+    {
+        "id": "88324d9150d7b608",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Metalwork/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1190,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "377f241d8d9ee6fe",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 810,
+        "y": 40,
+        "wires": [
+            [
+                "32251afed0887854"
+            ]
+        ]
+    },
+    {
+        "id": "8715dc9f1cc5d8af",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Metalwork/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1050,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "59ac68ddef6d7d74",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 820,
+        "y": 120,
+        "wires": [
+            [
+                "8715dc9f1cc5d8af"
+            ]
+        ]
+    },
+    {
+        "id": "9ea6c8ab18207ff6",
+        "type": "comment",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Query device status",
+        "info": "",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3c85a54ed4590989",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 2,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "CleanRoom LED",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "74b1fd0ad939eed8",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CleanRoomIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "68628e9d2154036f"
+            ]
+        ]
+    },
+    {
+        "id": "b8d083e53b9572c8",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CleanRoomStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "68628e9d2154036f"
+            ]
+        ]
+    },
+    {
+        "id": "68628e9d2154036f",
+        "type": "function",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Join",
+        "func": "msg.topic = flow.get('CleanRoomIP') || 'Waiting';\nmsg.payload = flow.get('CleanRoomStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "3c85a54ed4590989"
+            ]
+        ]
+    },
+    {
+        "id": "4cb96d017451f7c8",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Woodwork/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "24419641bb82a77e"
+            ]
+        ]
+    },
+    {
+        "id": "a4d47b6ea2d4462a",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "tele/Woodwork/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "e3cc6ce418d8fee7"
+            ]
+        ]
+    },
+    {
+        "id": "0f3eb3b754a98119",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 4,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Woodwork LED",
+        "x": 640,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "24419641bb82a77e",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WoodworkIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "a49f70704c63a424"
+            ]
+        ]
+    },
+    {
+        "id": "e3cc6ce418d8fee7",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WoodworkStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [
+                "a49f70704c63a424"
+            ]
+        ]
+    },
+    {
+        "id": "a49f70704c63a424",
+        "type": "function",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Join",
+        "func": "msg.topic = flow.get('WoodworkIP');\nmsg.payload = flow.get('WoodworkStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 540,
+        "wires": [
+            [
+                "0f3eb3b754a98119",
+                "a6c6dcd1e70d9c86",
+                "3306a3322db2d975"
+            ]
+        ]
+    },
+    {
+        "id": "72e919f5030fa7ad",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Metalwork/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 850,
+        "y": 240,
+        "wires": [
+            [
+                "28741f9fb133eb50"
+            ]
+        ]
+    },
+    {
+        "id": "dcbae9e92c150f38",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "tele/Metalwork/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 830,
+        "y": 180,
+        "wires": [
+            [
+                "4b5c71b87866ad2d"
+            ]
+        ]
+    },
+    {
+        "id": "8d2cdcbcf9f3c99f",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 6,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Metalwork LED",
+        "x": 1340,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "28741f9fb133eb50",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MetalworkIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "153313d7bb996546"
+            ]
+        ]
+    },
+    {
+        "id": "4b5c71b87866ad2d",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MetalworkStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 180,
+        "wires": [
+            [
+                "153313d7bb996546"
+            ]
+        ]
+    },
+    {
+        "id": "153313d7bb996546",
+        "type": "function",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Join",
+        "func": "msg.topic = flow.get('MetalworkIP') || 'Waiting...';\nmsg.payload = flow.get('MetalworkStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 200,
+        "wires": [
+            [
+                "8d2cdcbcf9f3c99f"
+            ]
+        ]
+    },
+    {
+        "id": "5524bd6b89d8939f",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 620,
+        "wires": [
+            [
+                "24419641bb82a77e"
+            ]
+        ]
+    },
+    {
+        "id": "ce045495253fad28",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "74b1fd0ad939eed8"
+            ]
+        ]
+    },
+    {
+        "id": "b15ca8ef61820b44",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "28741f9fb133eb50"
+            ]
+        ]
+    },
+    {
+        "id": "3306a3322db2d975",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a6c6dcd1e70d9c86",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d4feb199.b898b",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "CPU Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 683,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "c0682e5c.a4fc",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "RPi Temp.",
+        "x": 325.2221908569336,
+        "y": 46.33333683013916,
+        "wires": [
+            [
+                "95ae4c48.9f606"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2be04c82.d0af74",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 107.49996185302734,
+        "y": 46.805556297302246,
+        "wires": [
+            [
+                "c0682e5c.a4fc",
+                "92285ea6.f97a7",
+                "c0ffe68.afd6e18"
+            ]
+        ]
+    },
+    {
+        "id": "95ae4c48.9f606",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "let str = msg.payload\nmsg.payload = str.substring(5,9);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 471.888858795166,
+        "y": 33.00000190734863,
+        "wires": [
+            [
+                "d4feb199.b898b"
+            ]
+        ]
+    },
+    {
+        "id": "92285ea6.f97a7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "CPU Load",
+        "x": 325.2221908569336,
+        "y": 126.33333683013916,
+        "wires": [
+            [
+                "404f06.1e77b0fc",
+                "6385959a29a233d6"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c0ffe68.afd6e18",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "free | grep Mem | awk '{print 100*($4+$6+$7)/$2}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Free Memory",
+        "x": 325.2222099304199,
+        "y": 190.55557250976562,
+        "wires": [
+            [
+                "8cf70ed5.e49ec"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "404f06.1e77b0fc",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 7,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "CPU",
+        "label": "CPU",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 650,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8cf70ed5.e49ec",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Memory free",
+        "label": "%",
+        "format": "{{parseInt(value)}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 663.3333320617676,
+        "y": 176.55556392669678,
+        "wires": []
+    },
+    {
+        "id": "a508a5b7.89a128",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "df -h",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Disk Usage",
+        "x": 322.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a8dc2f34.5e32b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ad4498e0.e7c278",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 6,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Disk Space",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 661.1110496520996,
+        "y": 244.88890743255615,
+        "wires": []
+    },
+    {
+        "id": "a8dc2f34.5e32b",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "var re = /([0-9]{2})%/\nvar idx = msg.payload.search(re);\nvar str = msg.payload;\nif (idx >=0) {\n    str = msg.payload.substring(idx, idx + 2);\n}\nmsg.payload = str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470.66661071777344,
+        "y": 244.88890171051025,
+        "wires": [
+            [
+                "ad4498e0.e7c278"
+            ]
+        ]
+    },
+    {
+        "id": "5e6e69bb.0e1d38",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 122.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a508a5b7.89a128",
+                "27a39086903ea8ab"
+            ]
+        ]
+    },
+    {
+        "id": "620c2ccf.7c7584",
+        "type": "ui_text",
+        "z": "9cf3a6d.1104258",
+        "group": "9cb4bc4d.96552",
+        "order": 2,
+        "width": "6",
+        "height": "2",
+        "name": "",
+        "label": "IP Address",
+        "format": "{{value.substring(0, value.indexOf(\" \"))}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "19fadb42.3d0c25",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "9cce8e0f.766f7"
+            ]
+        ]
+    },
+    {
+        "id": "9cce8e0f.766f7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "hostname",
+        "addpay": false,
+        "append": "-I",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Get Local IP",
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "b1e5e669.f1fd48",
+                "620c2ccf.7c7584"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b1e5e669.f1fd48",
+        "type": "mqtt out",
+        "z": "9cf3a6d.1104258",
+        "name": "Publish IP",
+        "topic": "bbautomation/system/ip",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 640,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6385959a29a233d6",
+        "type": "ui_chart",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 8,
+        "width": "6",
+        "height": "4",
+        "label": "CPU Load",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2476bc39f61dbade",
+        "type": "ui_button",
+        "z": "9cf3a6d.1104258",
+        "name": "Reboot",
+        "group": "9cb4bc4d.96552",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reboot NOW!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "41b2cc4744fed53f"
+            ]
+        ]
+    },
+    {
+        "id": "41b2cc4744fed53f",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "sudo reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "db158e290e8faa55"
+            ],
+            [
+                "db158e290e8faa55"
+            ],
+            [
+                "db158e290e8faa55"
+            ]
+        ]
+    },
+    {
+        "id": "db158e290e8faa55",
+        "type": "debug",
+        "z": "9cf3a6d.1104258",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "27a39086903ea8ab",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "uptime -p",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Uptime",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "ef8bacf0280da884"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "118f816920b519c6",
+        "type": "ui_text",
+        "z": "9cf3a6d.1104258",
+        "group": "9cb4bc4d.96552",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Uptime",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 680,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ef8bacf0280da884",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "function",
+        "func": "msg.payload = msg.payload.substr(3);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "118f816920b519c6"
+            ]
+        ]
+    },
+    {
+        "id": "24f9243dbd52b679",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "label": "Loudness",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff0011",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 680,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4399b7593c764c1b",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/info",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "edda3f7cdd526cbb"
+            ]
+        ]
+    },
+    {
+        "id": "edda3f7cdd526cbb",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "944737aae379529e",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3d590b596f9b51c7",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "944737aae379529e"
+            ]
+        ]
+    },
+    {
+        "id": "62757772b120edfd",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/samplerate",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "15b1f6acb97b55d0"
+            ]
+        ]
+    },
+    {
+        "id": "523efa8ad715f1a0",
+        "type": "ui_text",
+        "z": "ebd8f5340c6273c3",
+        "group": "44de918663ff4cd7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sample rate",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "15b1f6acb97b55d0",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 1",
+        "func": "const rate = Number(msg.payload);\nconst kHz = Math.round(rate / 100) / 10;\n\nreturn { payload: `${kHz}kHz`};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "523efa8ad715f1a0"
+            ]
+        ]
+    },
+    {
+        "id": "347d1bafc55aa006",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 5,
+        "width": "6",
+        "height": "7",
+        "label": "Frequency",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "8000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#fb096a",
+            "#06a22d",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 690,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efea7e35fe4aec2e",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/event",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "a96a60716ed2f303",
+                "f788b392b17cc6c0"
+            ]
+        ]
+    },
+    {
+        "id": "a96a60716ed2f303",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Split event",
+        "func": "const now = new Date();\nconst startOfDay = new Date();\n\nstartOfDay.setHours(0, 0, 0, 0);\n\nconst secondsSinceStartOfDay = (now.getTime() - startOfDay.getTime()) / 1000;\n// Add timestamp to the payload\nmsg.payload.timestamp = secondsSinceStartOfDay;\n\nconst msg1 = { \n    payload: msg.payload.loudness, \n    topic: 'Loudness'\n};\n\nconst msg2 = {\n    payload: msg.payload.peak,\n    topic: 'Frequency'\n};\n\nconst msg3 = {\n    payload: msg.payload.inrange,\n    topic: 'Match'\n}\n\n\nreturn [msg, msg1, msg2, msg3];",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "93a23cf2fcc8b945"
+            ],
+            [
+                "24f9243dbd52b679"
+            ],
+            [
+                "347d1bafc55aa006"
+            ],
+            [
+                "d27de1c26a4d9188"
+            ]
+        ]
+    },
+    {
+        "id": "7d0eef1e3a8816ad",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Set filename",
+        "func": "const pad = (number, length) => {\n  return String(number).padStart(length, '0');\n};\n\nconst date = new Date();\nconst year = date.getFullYear();\nconst month = pad(date.getMonth() + 1, 2); // Months in JavaScript are zero-indexed\nconst day = pad(date.getDate(), 2);\n\nconst datestamp = `${year}-${month}-${day}`;\n\nconst filename = `audio_log_${datestamp}.csv`;\nmsg.filename = `/home/pi/audio_files/${filename}`;\nmsg.content = msg.payload;\nmsg.payload = {pattern: filename};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 40,
+        "wires": [
+            [
+                "b472f36406b131d8"
+            ]
+        ]
+    },
+    {
+        "id": "b472f36406b131d8",
+        "type": "fs-file-lister",
+        "z": "ebd8f5340c6273c3",
+        "name": "File exists?",
+        "start": "/home/pi/audio_files",
+        "pattern": "*.*",
+        "folders": "*",
+        "hidden": true,
+        "lstype": "files",
+        "path": true,
+        "single": true,
+        "depth": 0,
+        "stat": true,
+        "showWarnings": true,
+        "x": 1190,
+        "y": 40,
+        "wires": [
+            [
+                "0f1be36cb1ad173e"
+            ]
+        ]
+    },
+    {
+        "id": "0f1be36cb1ad173e",
+        "type": "switch",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "property": "$count(msg.payload)",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 220,
+        "wires": [
+            [
+                "c14821fe966108b4"
+            ],
+            [
+                "d82b3bcc50eebfc2"
+            ]
+        ]
+    },
+    {
+        "id": "c14821fe966108b4",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "713a836752aa0ec1"
+            ]
+        ]
+    },
+    {
+        "id": "d82b3bcc50eebfc2",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 260,
+        "wires": [
+            [
+                "ad32195cf683346a"
+            ]
+        ]
+    },
+    {
+        "id": "713a836752aa0ec1",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 180,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
+        "id": "ad32195cf683346a",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 260,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
         "id": "2daa8cfdb4025066",
         "type": "file",
         "z": "ebd8f5340c6273c3",
@@ -15,5 +3026,198 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "93a23cf2fcc8b945",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Filter",
+        "func": "const loudness = context.get(\"loudness\") || 0;\nconst peak = context.get('peak') || 0;\nif (msg.payload.loudness !== loudness || msg.payload.peak !== peak) {\n    context.set('loudness', msg.payload.loudness);\n    context.set('peak', msg.payload.peak);\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 40,
+        "wires": [
+            [
+                "7d0eef1e3a8816ad"
+            ]
+        ]
+    },
+    {
+        "id": "f788b392b17cc6c0",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5c98c0436f6c8c59",
+        "type": "inject",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "a18d824648b9f4f3"
+            ]
+        ]
+    },
+    {
+        "id": "a18d824648b9f4f3",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 2",
+        "func": "const now = new Date();\nconst seconds = now.getSeconds();\nif (seconds === 0) {\n    const hours = now.getHours().toString().padStart(2,'0');\n    const minutes = now.getMinutes().toString().padStart(2,'0');\n    const offset = now.getTimezoneOffset();\n    const isDST = offset === -60;\n    const timeZone = isDST ? \"BST\" : \"GMT\";\n    msg.payload = `${hours}:${minutes} ${timeZone}`;\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "c682544b934fbae8"
+            ]
+        ]
+    },
+    {
+        "id": "c682544b934fbae8",
+        "type": "mqtt out",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/time",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 640,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d27de1c26a4d9188",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "label": "Match",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#fb096a",
+            "#06a22d",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a2f75fdfaed6246",
+        "type": "amazon-echo-hub",
+        "z": "40c70371ebc05361",
+        "port": "8080",
+        "processinput": "2",
+        "discovery": true,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "90f3740df98353ea"
+            ]
+        ]
+    },
+    {
+        "id": "90f3740df98353ea",
+        "type": "amazon-echo-device",
+        "z": "40c70371ebc05361",
+        "name": "New socket",
+        "topic": "/newsocket/power",
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "fe5aecd35cf2a183"
+            ]
+        ]
+    },
+    {
+        "id": "fe5aecd35cf2a183",
+        "type": "debug",
+        "z": "40c70371ebc05361",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 260,
+        "wires": []
     }
 ]
