@@ -455,7 +455,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 320,
-        "y": 320,
+        "y": 240,
         "wires": [
             [
                 "cbc64914ec54a77f"
@@ -484,7 +484,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 100,
-        "y": 320,
+        "y": 240,
         "wires": [
             [
                 "2b543d1a16a8c323"
@@ -610,7 +610,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "5",
+        "payload": "10",
         "payloadType": "str",
         "x": 110,
         "y": 660,
@@ -618,7 +618,8 @@
             [
                 "2d4d5630891b366a",
                 "037b8ecc5b3114c9",
-                "615bedc1d06ebf8d"
+                "615bedc1d06ebf8d",
+                "5db20b14df1f3f5d"
             ]
         ]
     },
@@ -637,7 +638,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 860,
-        "y": 260,
+        "y": 180,
         "wires": []
     },
     {
@@ -660,12 +661,13 @@
         "to": "",
         "reg": false,
         "x": 550,
-        "y": 320,
+        "y": 240,
         "wires": [
             [
                 "72103f5e92a5c1f4",
                 "031798345fa21d35",
-                "aaea4fb66f0aca6d"
+                "aaea4fb66f0aca6d",
+                "09dff09f02607602"
             ]
         ]
     },
@@ -696,7 +698,8 @@
             [
                 "a0a76ccd8f5ece03",
                 "9f746031f8edc01c",
-                "bbe28fd7cf6f4d25"
+                "bbe28fd7cf6f4d25",
+                "e926a860ff4282b6"
             ]
         ]
     },
@@ -715,7 +718,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 920,
-        "y": 600,
+        "y": 580,
         "wires": []
     },
     {
@@ -755,7 +758,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 390,
-        "y": 620,
+        "y": 600,
         "wires": []
     },
     {
@@ -791,7 +794,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 380,
-        "y": 700,
+        "y": 720,
         "wires": []
     },
     {
@@ -809,7 +812,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 920,
-        "y": 660,
+        "y": 640,
         "wires": []
     },
     {
@@ -827,7 +830,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 920,
-        "y": 720,
+        "y": 700,
         "wires": []
     },
     {
@@ -845,7 +848,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 850,
-        "y": 320,
+        "y": 240,
         "wires": []
     },
     {
@@ -863,7 +866,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 850,
-        "y": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -1059,6 +1062,157 @@
                 "dbc1e4dcb8d7cf5f"
             ]
         ]
+    },
+    {
+        "id": "09dff09f02607602",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Movable/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 850,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2c93def30a1262d5",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Movable/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1200,
+        "y": 580,
+        "wires": [
+            [
+                "a62cf3e8029eedc1",
+                "833373445aa1f849"
+            ]
+        ]
+    },
+    {
+        "id": "a62cf3e8029eedc1",
+        "type": "debug",
+        "z": "6632116403e2e61f",
+        "name": "debug 15",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1460,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "833373445aa1f849",
+        "type": "ui_led",
+        "z": "6632116403e2e61f",
+        "order": 4,
+        "group": "bb89cea21e2c6873",
+        "width": 0,
+        "height": 0,
+        "label": "WiFi Plug",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1450,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "90ad8d8ed9f682a3",
+        "type": "mqtt in",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "stat/Movable/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1200,
+        "y": 640,
+        "wires": [
+            [
+                "a62cf3e8029eedc1",
+                "833373445aa1f849"
+            ]
+        ]
+    },
+    {
+        "id": "e926a860ff4282b6",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Movable/BlinkTime",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 910,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "5db20b14df1f3f5d",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/Movable/BlinkCount",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 370,
+        "y": 780,
+        "wires": []
     },
     {
         "id": "d2d12d6e02c44874",
@@ -1619,7 +1773,7 @@
         "z": "3fb3daf03c16c4aa",
         "name": "",
         "topic": "tele/Woodwork/LWT",
-        "qos": "2",
+        "qos": "0",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
         "nl": false,
@@ -1736,9 +1890,7 @@
         "y": 540,
         "wires": [
             [
-                "0f3eb3b754a98119",
-                "a6c6dcd1e70d9c86",
-                "3306a3322db2d975"
+                "0f3eb3b754a98119"
             ]
         ]
     },
@@ -1970,38 +2122,305 @@
         ]
     },
     {
-        "id": "3306a3322db2d975",
-        "type": "debug",
+        "id": "1b8c1fcd649e4a85",
+        "type": "ui_button",
         "z": "3fb3daf03c16c4aa",
-        "name": "debug 9",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "WiFi Plug",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 960,
+        "y": 380,
+        "wires": [
+            [
+                "16e099ed722f9242"
+            ]
+        ]
+    },
+    {
+        "id": "16e099ed722f9242",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Movable/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "da244419b15c432f",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            [
+                "1b8c1fcd649e4a85"
+            ]
+        ]
+    },
+    {
+        "id": "313ed551990aab75",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/Movable/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1040,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5629ce6990939382",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "313ed551990aab75"
+            ]
+        ]
+    },
+    {
+        "id": "8510681fa1893da6",
+        "type": "comment",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Query device status",
+        "info": "",
+        "x": 830,
         "y": 420,
         "wires": []
     },
     {
-        "id": "a6c6dcd1e70d9c86",
-        "type": "debug",
+        "id": "452fc9edf2b9c5f8",
+        "type": "mqtt in",
         "z": "3fb3daf03c16c4aa",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "topic",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 460,
+        "name": "",
+        "topic": "stat/Movable/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 580,
+        "wires": [
+            [
+                "104193d664f42e6e"
+            ]
+        ]
+    },
+    {
+        "id": "4020812fca97062b",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "tele/Movable/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 830,
+        "y": 520,
+        "wires": [
+            [
+                "93261282658663b6"
+            ]
+        ]
+    },
+    {
+        "id": "05b264380ca6845a",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 8,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "WiFi Plug LED",
+        "x": 1340,
+        "y": 540,
         "wires": []
+    },
+    {
+        "id": "104193d664f42e6e",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MovableIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 580,
+        "wires": [
+            [
+                "bf810631b0cfeab3"
+            ]
+        ]
+    },
+    {
+        "id": "93261282658663b6",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "MovableStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 520,
+        "wires": [
+            [
+                "bf810631b0cfeab3"
+            ]
+        ]
+    },
+    {
+        "id": "bf810631b0cfeab3",
+        "type": "function",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Join",
+        "func": "msg.topic = flow.get('MovableIP') || 'Waiting...';\nmsg.payload = flow.get('MovableStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 540,
+        "wires": [
+            [
+                "05b264380ca6845a"
+            ]
+        ]
+    },
+    {
+        "id": "b2a07540c7f00b92",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 890,
+        "y": 640,
+        "wires": [
+            [
+                "104193d664f42e6e"
+            ]
+        ]
     },
     {
         "id": "d4feb199.b898b",
@@ -2569,7 +2988,7 @@
         "order": 4,
         "width": "0",
         "height": "0",
-        "label": "Loudness",
+        "label": "",
         "chartType": "line",
         "legend": "true",
         "xformat": "ss",
@@ -2598,7 +3017,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 680,
+        "x": 670,
         "y": 80,
         "wires": [
             []
@@ -2749,8 +3168,8 @@
         "group": "44de918663ff4cd7",
         "order": 5,
         "width": "6",
-        "height": "7",
-        "label": "Frequency",
+        "height": "5",
+        "label": "",
         "chartType": "line",
         "legend": "true",
         "xformat": "ss",
@@ -2779,7 +3198,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 690,
+        "x": 670,
         "y": 120,
         "wires": [
             []
@@ -3139,7 +3558,7 @@
         "order": 5,
         "width": "0",
         "height": "0",
-        "label": "Match",
+        "label": "",
         "chartType": "line",
         "legend": "true",
         "xformat": "ss",
