@@ -8,14 +8,6 @@
         "env": []
     },
     {
-        "id": "3fb3daf03c16c4aa",
-        "type": "tab",
-        "label": "Devices",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "9cf3a6d.1104258",
         "type": "tab",
         "label": "Raspberry monitoring",
@@ -34,6 +26,14 @@
         "id": "40c70371ebc05361",
         "type": "tab",
         "label": "Alexa Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3fb3daf03c16c4aa",
+        "type": "tab",
+        "label": "Devices",
         "disabled": false,
         "info": "",
         "env": []
@@ -1212,6 +1212,1265 @@
         "broker": "38e902423e538381",
         "x": 370,
         "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d4feb199.b898b",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "CPU Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 683,
+        "y": 33,
+        "wires": []
+    },
+    {
+        "id": "c0682e5c.a4fc",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "RPi Temp.",
+        "x": 325.2221908569336,
+        "y": 46.33333683013916,
+        "wires": [
+            [
+                "95ae4c48.9f606"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2be04c82.d0af74",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 107.49996185302734,
+        "y": 46.805556297302246,
+        "wires": [
+            [
+                "c0682e5c.a4fc",
+                "92285ea6.f97a7",
+                "c0ffe68.afd6e18"
+            ]
+        ]
+    },
+    {
+        "id": "95ae4c48.9f606",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "let str = msg.payload\nmsg.payload = str.substring(5,9);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 471.888858795166,
+        "y": 33.00000190734863,
+        "wires": [
+            [
+                "d4feb199.b898b"
+            ]
+        ]
+    },
+    {
+        "id": "92285ea6.f97a7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "CPU Load",
+        "x": 325.2221908569336,
+        "y": 126.33333683013916,
+        "wires": [
+            [
+                "404f06.1e77b0fc",
+                "6385959a29a233d6"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c0ffe68.afd6e18",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "free | grep Mem | awk '{print 100*($4+$6+$7)/$2}'",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Free Memory",
+        "x": 325.2222099304199,
+        "y": 190.55557250976562,
+        "wires": [
+            [
+                "8cf70ed5.e49ec"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "404f06.1e77b0fc",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 7,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "CPU",
+        "label": "CPU",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 650,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8cf70ed5.e49ec",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Memory free",
+        "label": "%",
+        "format": "{{parseInt(value)}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 663.3333320617676,
+        "y": 176.55556392669678,
+        "wires": []
+    },
+    {
+        "id": "a508a5b7.89a128",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "df -h",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Disk Usage",
+        "x": 322.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a8dc2f34.5e32b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ad4498e0.e7c278",
+        "type": "ui_gauge",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 6,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Disk Space",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 661.1110496520996,
+        "y": 244.88890743255615,
+        "wires": []
+    },
+    {
+        "id": "a8dc2f34.5e32b",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "func": "var re = /([0-9]{2})%/\nvar idx = msg.payload.search(re);\nvar str = msg.payload;\nif (idx >=0) {\n    str = msg.payload.substring(idx, idx + 2);\n}\nmsg.payload = str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470.66661071777344,
+        "y": 244.88890171051025,
+        "wires": [
+            [
+                "ad4498e0.e7c278"
+            ]
+        ]
+    },
+    {
+        "id": "5e6e69bb.0e1d38",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 122.88884353637695,
+        "y": 258.2222442626953,
+        "wires": [
+            [
+                "a508a5b7.89a128",
+                "27a39086903ea8ab"
+            ]
+        ]
+    },
+    {
+        "id": "620c2ccf.7c7584",
+        "type": "ui_text",
+        "z": "9cf3a6d.1104258",
+        "group": "9cb4bc4d.96552",
+        "order": 2,
+        "width": "6",
+        "height": "2",
+        "name": "",
+        "label": "IP Address",
+        "format": "{{value.substring(0, value.indexOf(\" \"))}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "19fadb42.3d0c25",
+        "type": "inject",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "9cce8e0f.766f7"
+            ]
+        ]
+    },
+    {
+        "id": "9cce8e0f.766f7",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "hostname",
+        "addpay": false,
+        "append": "-I",
+        "useSpawn": "",
+        "timer": "",
+        "winHide": false,
+        "name": "Get Local IP",
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "b1e5e669.f1fd48",
+                "620c2ccf.7c7584"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b1e5e669.f1fd48",
+        "type": "mqtt out",
+        "z": "9cf3a6d.1104258",
+        "name": "Publish IP",
+        "topic": "bbautomation/system/ip",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 640,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6385959a29a233d6",
+        "type": "ui_chart",
+        "z": "9cf3a6d.1104258",
+        "name": "",
+        "group": "9cb4bc4d.96552",
+        "order": 8,
+        "width": "6",
+        "height": "4",
+        "label": "CPU Load",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2476bc39f61dbade",
+        "type": "ui_button",
+        "z": "9cf3a6d.1104258",
+        "name": "Reboot",
+        "group": "9cb4bc4d.96552",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reboot NOW!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "41b2cc4744fed53f"
+            ]
+        ]
+    },
+    {
+        "id": "41b2cc4744fed53f",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "sudo reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "db158e290e8faa55"
+            ],
+            [
+                "db158e290e8faa55"
+            ],
+            [
+                "db158e290e8faa55"
+            ]
+        ]
+    },
+    {
+        "id": "db158e290e8faa55",
+        "type": "debug",
+        "z": "9cf3a6d.1104258",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "27a39086903ea8ab",
+        "type": "exec",
+        "z": "9cf3a6d.1104258",
+        "command": "uptime -p",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Uptime",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "ef8bacf0280da884"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "118f816920b519c6",
+        "type": "ui_text",
+        "z": "9cf3a6d.1104258",
+        "group": "9cb4bc4d.96552",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Uptime",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 680,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ef8bacf0280da884",
+        "type": "function",
+        "z": "9cf3a6d.1104258",
+        "name": "function",
+        "func": "msg.payload = msg.payload.substr(3);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "118f816920b519c6"
+            ]
+        ]
+    },
+    {
+        "id": "24f9243dbd52b679",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff0011",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4399b7593c764c1b",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/info",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "edda3f7cdd526cbb"
+            ]
+        ]
+    },
+    {
+        "id": "edda3f7cdd526cbb",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "944737aae379529e",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 12",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3d590b596f9b51c7",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "944737aae379529e"
+            ]
+        ]
+    },
+    {
+        "id": "347d1bafc55aa006",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 5,
+        "width": "6",
+        "height": "5",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "8000",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#fb096a",
+            "#06a22d",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efea7e35fe4aec2e",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/event",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 120,
+        "wires": [
+            [
+                "a96a60716ed2f303",
+                "f788b392b17cc6c0"
+            ]
+        ]
+    },
+    {
+        "id": "a96a60716ed2f303",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Split event",
+        "func": "const now = new Date();\nconst startOfDay = new Date();\n\nstartOfDay.setHours(0, 0, 0, 0);\n\nconst secondsSinceStartOfDay = (now.getTime() - startOfDay.getTime()) / 1000;\n// Add timestamp to the payload\nmsg.payload.timestamp = secondsSinceStartOfDay;\n\nconst msg1 = { \n    payload: msg.payload.loudness, \n    topic: 'Loudness'\n};\n\nconst msg2 = {\n    payload: msg.payload.peak,\n    topic: 'Frequency'\n};\n\nconst msg3 = {\n    payload: msg.payload.inrange,\n    topic: 'Match'\n}\n\n\nreturn [msg, msg1, msg2, msg3];",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "93a23cf2fcc8b945"
+            ],
+            [
+                "24f9243dbd52b679"
+            ],
+            [
+                "347d1bafc55aa006"
+            ],
+            [
+                "d27de1c26a4d9188"
+            ]
+        ]
+    },
+    {
+        "id": "7d0eef1e3a8816ad",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Set filename",
+        "func": "const pad = (number, length) => {\n  return String(number).padStart(length, '0');\n};\n\nconst date = new Date();\nconst year = date.getFullYear();\nconst month = pad(date.getMonth() + 1, 2); // Months in JavaScript are zero-indexed\nconst day = pad(date.getDate(), 2);\n\nconst datestamp = `${year}-${month}-${day}`;\n\nconst filename = `audio_log_${datestamp}.csv`;\nmsg.filename = `/home/pi/audio_files/${filename}`;\nmsg.content = msg.payload;\nmsg.payload = {pattern: filename};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 40,
+        "wires": [
+            [
+                "b472f36406b131d8"
+            ]
+        ]
+    },
+    {
+        "id": "b472f36406b131d8",
+        "type": "fs-file-lister",
+        "z": "ebd8f5340c6273c3",
+        "name": "File exists?",
+        "start": "/home/pi/audio_files",
+        "pattern": "*.*",
+        "folders": "*",
+        "hidden": true,
+        "lstype": "files",
+        "path": true,
+        "single": true,
+        "depth": 0,
+        "stat": true,
+        "showWarnings": true,
+        "x": 1190,
+        "y": 40,
+        "wires": [
+            [
+                "0f1be36cb1ad173e"
+            ]
+        ]
+    },
+    {
+        "id": "0f1be36cb1ad173e",
+        "type": "switch",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "property": "$count(msg.payload)",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 220,
+        "wires": [
+            [
+                "c14821fe966108b4"
+            ],
+            [
+                "d82b3bcc50eebfc2"
+            ]
+        ]
+    },
+    {
+        "id": "c14821fe966108b4",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "713a836752aa0ec1"
+            ]
+        ]
+    },
+    {
+        "id": "d82b3bcc50eebfc2",
+        "type": "change",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 260,
+        "wires": [
+            [
+                "ad32195cf683346a"
+            ]
+        ]
+    },
+    {
+        "id": "713a836752aa0ec1",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 180,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
+        "id": "ad32195cf683346a",
+        "type": "csv",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "timestamp,loudness,peak",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1150,
+        "y": 260,
+        "wires": [
+            [
+                "2daa8cfdb4025066"
+            ]
+        ]
+    },
+    {
+        "id": "2daa8cfdb4025066",
+        "type": "file",
+        "z": "ebd8f5340c6273c3",
+        "name": "Write to file",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1310,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93a23cf2fcc8b945",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "Filter",
+        "func": "const loudness = context.get(\"loudness\") || 0;\nconst peak = context.get('peak') || 0;\nif (msg.payload.loudness !== loudness || msg.payload.peak !== peak) {\n    context.set('loudness', msg.payload.loudness);\n    context.set('peak', msg.payload.peak);\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 40,
+        "wires": [
+            [
+                "7d0eef1e3a8816ad"
+            ]
+        ]
+    },
+    {
+        "id": "f788b392b17cc6c0",
+        "type": "debug",
+        "z": "ebd8f5340c6273c3",
+        "name": "debug 13",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5c98c0436f6c8c59",
+        "type": "inject",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "a18d824648b9f4f3"
+            ]
+        ]
+    },
+    {
+        "id": "a18d824648b9f4f3",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 2",
+        "func": "const now = new Date();\nconst seconds = now.getSeconds();\nif (seconds === 0) {\n    const hours = now.getHours().toString().padStart(2,'0');\n    const minutes = now.getMinutes().toString().padStart(2,'0');\n    const offset = now.getTimezoneOffset();\n    const isDST = offset === -60;\n    const timeZone = isDST ? \"BST\" : \"GMT\";\n    msg.payload = `${hours}:${minutes} ${timeZone}`;\n    return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "c682544b934fbae8"
+            ]
+        ]
+    },
+    {
+        "id": "c682544b934fbae8",
+        "type": "mqtt out",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/time",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 660,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d27de1c26a4d9188",
+        "type": "ui_chart",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "group": "44de918663ff4cd7",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#fb096a",
+            "#06a22d",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62757772b120edfd",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/samplerate",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "15b1f6acb97b55d0"
+            ]
+        ]
+    },
+    {
+        "id": "523efa8ad715f1a0",
+        "type": "ui_text",
+        "z": "ebd8f5340c6273c3",
+        "group": "44de918663ff4cd7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sample rate",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "15b1f6acb97b55d0",
+        "type": "function",
+        "z": "ebd8f5340c6273c3",
+        "name": "function 1",
+        "func": "const rate = Number(msg.payload);\nconst kHz = Math.round(rate / 100) / 10;\n\nreturn { payload: `${kHz}kHz`};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "523efa8ad715f1a0"
+            ]
+        ]
+    },
+    {
+        "id": "f5c993759b3cb8ad",
+        "type": "mqtt in",
+        "z": "ebd8f5340c6273c3",
+        "name": "",
+        "topic": "/intercom/audio/baseline",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "2df93c0383beece5"
+            ]
+        ]
+    },
+    {
+        "id": "2df93c0383beece5",
+        "type": "ui_text",
+        "z": "ebd8f5340c6273c3",
+        "group": "44de918663ff4cd7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Baseline",
+        "format": "{{msg.payload || '---'}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6a2f75fdfaed6246",
+        "type": "amazon-echo-hub",
+        "z": "40c70371ebc05361",
+        "port": "8080",
+        "processinput": "2",
+        "discovery": true,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "90f3740df98353ea"
+            ]
+        ]
+    },
+    {
+        "id": "90f3740df98353ea",
+        "type": "amazon-echo-device",
+        "z": "40c70371ebc05361",
+        "name": "New socket",
+        "topic": "/newsocket/power",
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "fe5aecd35cf2a183"
+            ]
+        ]
+    },
+    {
+        "id": "fe5aecd35cf2a183",
+        "type": "debug",
+        "z": "40c70371ebc05361",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 260,
         "wires": []
     },
     {
@@ -2421,1222 +3680,5 @@
                 "104193d664f42e6e"
             ]
         ]
-    },
-    {
-        "id": "d4feb199.b898b",
-        "type": "ui_gauge",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "group": "9cb4bc4d.96552",
-        "order": 4,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "CPU Temperature",
-        "label": "C",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "50",
-        "seg2": "80",
-        "diff": false,
-        "className": "",
-        "x": 683,
-        "y": 33,
-        "wires": []
-    },
-    {
-        "id": "c0682e5c.a4fc",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "vcgencmd measure_temp",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "",
-        "timer": "",
-        "name": "RPi Temp.",
-        "x": 325.2221908569336,
-        "y": 46.33333683013916,
-        "wires": [
-            [
-                "95ae4c48.9f606"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "2be04c82.d0af74",
-        "type": "inject",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 107.49996185302734,
-        "y": 46.805556297302246,
-        "wires": [
-            [
-                "c0682e5c.a4fc",
-                "92285ea6.f97a7",
-                "c0ffe68.afd6e18"
-            ]
-        ]
-    },
-    {
-        "id": "95ae4c48.9f606",
-        "type": "function",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "func": "let str = msg.payload\nmsg.payload = str.substring(5,9);\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 471.888858795166,
-        "y": 33.00000190734863,
-        "wires": [
-            [
-                "d4feb199.b898b"
-            ]
-        ]
-    },
-    {
-        "id": "92285ea6.f97a7",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "",
-        "timer": "",
-        "name": "CPU Load",
-        "x": 325.2221908569336,
-        "y": 126.33333683013916,
-        "wires": [
-            [
-                "404f06.1e77b0fc",
-                "6385959a29a233d6"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "c0ffe68.afd6e18",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "free | grep Mem | awk '{print 100*($4+$6+$7)/$2}'",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "",
-        "timer": "",
-        "winHide": false,
-        "name": "Free Memory",
-        "x": 325.2222099304199,
-        "y": 190.55557250976562,
-        "wires": [
-            [
-                "8cf70ed5.e49ec"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "404f06.1e77b0fc",
-        "type": "ui_gauge",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "group": "9cb4bc4d.96552",
-        "order": 7,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "CPU",
-        "label": "CPU",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 650,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "8cf70ed5.e49ec",
-        "type": "ui_gauge",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "group": "9cb4bc4d.96552",
-        "order": 5,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Memory free",
-        "label": "%",
-        "format": "{{parseInt(value)}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ca3838",
-            "#e6e600",
-            "#00b500"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 663.3333320617676,
-        "y": 176.55556392669678,
-        "wires": []
-    },
-    {
-        "id": "a508a5b7.89a128",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "df -h",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "",
-        "timer": "",
-        "winHide": false,
-        "name": "Disk Usage",
-        "x": 322.88884353637695,
-        "y": 258.2222442626953,
-        "wires": [
-            [
-                "a8dc2f34.5e32b"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "ad4498e0.e7c278",
-        "type": "ui_gauge",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "group": "9cb4bc4d.96552",
-        "order": 6,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Disk Space",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 661.1110496520996,
-        "y": 244.88890743255615,
-        "wires": []
-    },
-    {
-        "id": "a8dc2f34.5e32b",
-        "type": "function",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "func": "var re = /([0-9]{2})%/\nvar idx = msg.payload.search(re);\nvar str = msg.payload;\nif (idx >=0) {\n    str = msg.payload.substring(idx, idx + 2);\n}\nmsg.payload = str;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 470.66661071777344,
-        "y": 244.88890171051025,
-        "wires": [
-            [
-                "ad4498e0.e7c278"
-            ]
-        ]
-    },
-    {
-        "id": "5e6e69bb.0e1d38",
-        "type": "inject",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 122.88884353637695,
-        "y": 258.2222442626953,
-        "wires": [
-            [
-                "a508a5b7.89a128",
-                "27a39086903ea8ab"
-            ]
-        ]
-    },
-    {
-        "id": "620c2ccf.7c7584",
-        "type": "ui_text",
-        "z": "9cf3a6d.1104258",
-        "group": "9cb4bc4d.96552",
-        "order": 2,
-        "width": "6",
-        "height": "2",
-        "name": "",
-        "label": "IP Address",
-        "format": "{{value.substring(0, value.indexOf(\" \"))}}",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 650,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "19fadb42.3d0c25",
-        "type": "inject",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 400,
-        "wires": [
-            [
-                "9cce8e0f.766f7"
-            ]
-        ]
-    },
-    {
-        "id": "9cce8e0f.766f7",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "hostname",
-        "addpay": false,
-        "append": "-I",
-        "useSpawn": "",
-        "timer": "",
-        "winHide": false,
-        "name": "Get Local IP",
-        "x": 330,
-        "y": 400,
-        "wires": [
-            [
-                "b1e5e669.f1fd48",
-                "620c2ccf.7c7584"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "b1e5e669.f1fd48",
-        "type": "mqtt out",
-        "z": "9cf3a6d.1104258",
-        "name": "Publish IP",
-        "topic": "bbautomation/system/ip",
-        "qos": "0",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 640,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "6385959a29a233d6",
-        "type": "ui_chart",
-        "z": "9cf3a6d.1104258",
-        "name": "",
-        "group": "9cb4bc4d.96552",
-        "order": 8,
-        "width": "6",
-        "height": "4",
-        "label": "CPU Load",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "24",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 670,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2476bc39f61dbade",
-        "type": "ui_button",
-        "z": "9cf3a6d.1104258",
-        "name": "Reboot",
-        "group": "9cb4bc4d.96552",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Reboot NOW!",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 140,
-        "y": 500,
-        "wires": [
-            [
-                "41b2cc4744fed53f"
-            ]
-        ]
-    },
-    {
-        "id": "41b2cc4744fed53f",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "sudo reboot",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Reboot",
-        "x": 340,
-        "y": 500,
-        "wires": [
-            [
-                "db158e290e8faa55"
-            ],
-            [
-                "db158e290e8faa55"
-            ],
-            [
-                "db158e290e8faa55"
-            ]
-        ]
-    },
-    {
-        "id": "db158e290e8faa55",
-        "type": "debug",
-        "z": "9cf3a6d.1104258",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "27a39086903ea8ab",
-        "type": "exec",
-        "z": "9cf3a6d.1104258",
-        "command": "uptime -p",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Uptime",
-        "x": 340,
-        "y": 320,
-        "wires": [
-            [
-                "ef8bacf0280da884"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "118f816920b519c6",
-        "type": "ui_text",
-        "z": "9cf3a6d.1104258",
-        "group": "9cb4bc4d.96552",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Uptime",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 680,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "ef8bacf0280da884",
-        "type": "function",
-        "z": "9cf3a6d.1104258",
-        "name": "function",
-        "func": "msg.payload = msg.payload.substr(3);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 300,
-        "wires": [
-            [
-                "118f816920b519c6"
-            ]
-        ]
-    },
-    {
-        "id": "24f9243dbd52b679",
-        "type": "ui_chart",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "group": "44de918663ff4cd7",
-        "order": 4,
-        "width": "0",
-        "height": "0",
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "ss",
-        "interpolate": "step",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "2000",
-        "removeOlder": "3",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "60",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#ff0011",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 670,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4399b7593c764c1b",
-        "type": "mqtt in",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "topic": "/intercom/info",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 320,
-        "wires": [
-            [
-                "edda3f7cdd526cbb"
-            ]
-        ]
-    },
-    {
-        "id": "edda3f7cdd526cbb",
-        "type": "debug",
-        "z": "ebd8f5340c6273c3",
-        "name": "debug 11",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "944737aae379529e",
-        "type": "debug",
-        "z": "ebd8f5340c6273c3",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "3d590b596f9b51c7",
-        "type": "mqtt in",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "topic": "/intercom/#",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 380,
-        "wires": [
-            [
-                "944737aae379529e"
-            ]
-        ]
-    },
-    {
-        "id": "62757772b120edfd",
-        "type": "mqtt in",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "topic": "/intercom/audio/samplerate",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 260,
-        "wires": [
-            [
-                "15b1f6acb97b55d0"
-            ]
-        ]
-    },
-    {
-        "id": "523efa8ad715f1a0",
-        "type": "ui_text",
-        "z": "ebd8f5340c6273c3",
-        "group": "44de918663ff4cd7",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Sample rate",
-        "format": "{{msg.payload || '---'}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 650,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "15b1f6acb97b55d0",
-        "type": "function",
-        "z": "ebd8f5340c6273c3",
-        "name": "function 1",
-        "func": "const rate = Number(msg.payload);\nconst kHz = Math.round(rate / 100) / 10;\n\nreturn { payload: `${kHz}kHz`};",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 260,
-        "wires": [
-            [
-                "523efa8ad715f1a0"
-            ]
-        ]
-    },
-    {
-        "id": "347d1bafc55aa006",
-        "type": "ui_chart",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "group": "44de918663ff4cd7",
-        "order": 5,
-        "width": "6",
-        "height": "5",
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "ss",
-        "interpolate": "step",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "8000",
-        "removeOlder": "3",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "60",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#fb096a",
-            "#06a22d",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 670,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "efea7e35fe4aec2e",
-        "type": "mqtt in",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "topic": "/intercom/audio/event",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 180,
-        "y": 120,
-        "wires": [
-            [
-                "a96a60716ed2f303",
-                "f788b392b17cc6c0"
-            ]
-        ]
-    },
-    {
-        "id": "a96a60716ed2f303",
-        "type": "function",
-        "z": "ebd8f5340c6273c3",
-        "name": "Split event",
-        "func": "const now = new Date();\nconst startOfDay = new Date();\n\nstartOfDay.setHours(0, 0, 0, 0);\n\nconst secondsSinceStartOfDay = (now.getTime() - startOfDay.getTime()) / 1000;\n// Add timestamp to the payload\nmsg.payload.timestamp = secondsSinceStartOfDay;\n\nconst msg1 = { \n    payload: msg.payload.loudness, \n    topic: 'Loudness'\n};\n\nconst msg2 = {\n    payload: msg.payload.peak,\n    topic: 'Frequency'\n};\n\nconst msg3 = {\n    payload: msg.payload.inrange,\n    topic: 'Match'\n}\n\n\nreturn [msg, msg1, msg2, msg3];",
-        "outputs": 4,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 120,
-        "wires": [
-            [
-                "93a23cf2fcc8b945"
-            ],
-            [
-                "24f9243dbd52b679"
-            ],
-            [
-                "347d1bafc55aa006"
-            ],
-            [
-                "d27de1c26a4d9188"
-            ]
-        ]
-    },
-    {
-        "id": "7d0eef1e3a8816ad",
-        "type": "function",
-        "z": "ebd8f5340c6273c3",
-        "name": "Set filename",
-        "func": "const pad = (number, length) => {\n  return String(number).padStart(length, '0');\n};\n\nconst date = new Date();\nconst year = date.getFullYear();\nconst month = pad(date.getMonth() + 1, 2); // Months in JavaScript are zero-indexed\nconst day = pad(date.getDate(), 2);\n\nconst datestamp = `${year}-${month}-${day}`;\n\nconst filename = `audio_log_${datestamp}.csv`;\nmsg.filename = `/home/pi/audio_files/${filename}`;\nmsg.content = msg.payload;\nmsg.payload = {pattern: filename};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 950,
-        "y": 40,
-        "wires": [
-            [
-                "b472f36406b131d8"
-            ]
-        ]
-    },
-    {
-        "id": "b472f36406b131d8",
-        "type": "fs-file-lister",
-        "z": "ebd8f5340c6273c3",
-        "name": "File exists?",
-        "start": "/home/pi/audio_files",
-        "pattern": "*.*",
-        "folders": "*",
-        "hidden": true,
-        "lstype": "files",
-        "path": true,
-        "single": true,
-        "depth": 0,
-        "stat": true,
-        "showWarnings": true,
-        "x": 1190,
-        "y": 40,
-        "wires": [
-            [
-                "0f1be36cb1ad173e"
-            ]
-        ]
-    },
-    {
-        "id": "0f1be36cb1ad173e",
-        "type": "switch",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "property": "$count(msg.payload)",
-        "propertyType": "jsonata",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 830,
-        "y": 220,
-        "wires": [
-            [
-                "c14821fe966108b4"
-            ],
-            [
-                "d82b3bcc50eebfc2"
-            ]
-        ]
-    },
-    {
-        "id": "c14821fe966108b4",
-        "type": "change",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "content",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1000,
-        "y": 180,
-        "wires": [
-            [
-                "713a836752aa0ec1"
-            ]
-        ]
-    },
-    {
-        "id": "d82b3bcc50eebfc2",
-        "type": "change",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "content",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1000,
-        "y": 260,
-        "wires": [
-            [
-                "ad32195cf683346a"
-            ]
-        ]
-    },
-    {
-        "id": "713a836752aa0ec1",
-        "type": "csv",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "sep": ",",
-        "hdrin": "",
-        "hdrout": "all",
-        "multi": "one",
-        "ret": "\\n",
-        "temp": "timestamp,loudness,peak",
-        "skip": "0",
-        "strings": true,
-        "include_empty_strings": "",
-        "include_null_values": "",
-        "x": 1150,
-        "y": 180,
-        "wires": [
-            [
-                "2daa8cfdb4025066"
-            ]
-        ]
-    },
-    {
-        "id": "ad32195cf683346a",
-        "type": "csv",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "sep": ",",
-        "hdrin": "",
-        "hdrout": "none",
-        "multi": "one",
-        "ret": "\\n",
-        "temp": "timestamp,loudness,peak",
-        "skip": "0",
-        "strings": true,
-        "include_empty_strings": "",
-        "include_null_values": "",
-        "x": 1150,
-        "y": 260,
-        "wires": [
-            [
-                "2daa8cfdb4025066"
-            ]
-        ]
-    },
-    {
-        "id": "2daa8cfdb4025066",
-        "type": "file",
-        "z": "ebd8f5340c6273c3",
-        "name": "Write to file",
-        "filename": "filename",
-        "filenameType": "msg",
-        "appendNewline": false,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 1310,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "93a23cf2fcc8b945",
-        "type": "function",
-        "z": "ebd8f5340c6273c3",
-        "name": "Filter",
-        "func": "const loudness = context.get(\"loudness\") || 0;\nconst peak = context.get('peak') || 0;\nif (msg.payload.loudness !== loudness || msg.payload.peak !== peak) {\n    context.set('loudness', msg.payload.loudness);\n    context.set('peak', msg.payload.peak);\n    return msg;\n}\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 40,
-        "wires": [
-            [
-                "7d0eef1e3a8816ad"
-            ]
-        ]
-    },
-    {
-        "id": "f788b392b17cc6c0",
-        "type": "debug",
-        "z": "ebd8f5340c6273c3",
-        "name": "debug 13",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "5c98c0436f6c8c59",
-        "type": "inject",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 460,
-        "wires": [
-            [
-                "a18d824648b9f4f3"
-            ]
-        ]
-    },
-    {
-        "id": "a18d824648b9f4f3",
-        "type": "function",
-        "z": "ebd8f5340c6273c3",
-        "name": "function 2",
-        "func": "const now = new Date();\nconst seconds = now.getSeconds();\nif (seconds === 0) {\n    const hours = now.getHours().toString().padStart(2,'0');\n    const minutes = now.getMinutes().toString().padStart(2,'0');\n    const offset = now.getTimezoneOffset();\n    const isDST = offset === -60;\n    const timeZone = isDST ? \"BST\" : \"GMT\";\n    msg.payload = `${hours}:${minutes} ${timeZone}`;\n    return msg;\n}\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 460,
-        "wires": [
-            [
-                "c682544b934fbae8"
-            ]
-        ]
-    },
-    {
-        "id": "c682544b934fbae8",
-        "type": "mqtt out",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "topic": "/intercom/time",
-        "qos": "",
-        "retain": "true",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 640,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "d27de1c26a4d9188",
-        "type": "ui_chart",
-        "z": "ebd8f5340c6273c3",
-        "name": "",
-        "group": "44de918663ff4cd7",
-        "order": 5,
-        "width": "0",
-        "height": "0",
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "ss",
-        "interpolate": "step",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "3",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "60",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#fb096a",
-            "#06a22d",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 670,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6a2f75fdfaed6246",
-        "type": "amazon-echo-hub",
-        "z": "40c70371ebc05361",
-        "port": "8080",
-        "processinput": "2",
-        "discovery": true,
-        "x": 310,
-        "y": 260,
-        "wires": [
-            [
-                "90f3740df98353ea"
-            ]
-        ]
-    },
-    {
-        "id": "90f3740df98353ea",
-        "type": "amazon-echo-device",
-        "z": "40c70371ebc05361",
-        "name": "New socket",
-        "topic": "/newsocket/power",
-        "x": 590,
-        "y": 260,
-        "wires": [
-            [
-                "fe5aecd35cf2a183"
-            ]
-        ]
-    },
-    {
-        "id": "fe5aecd35cf2a183",
-        "type": "debug",
-        "z": "40c70371ebc05361",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 860,
-        "y": 260,
-        "wires": []
     }
 ]
