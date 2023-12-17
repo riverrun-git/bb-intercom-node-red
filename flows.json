@@ -175,17 +175,6 @@
         }
     },
     {
-        "id": "bb89cea21e2c6873",
-        "type": "ui_group",
-        "name": "Intercom",
-        "tab": "dde4ad20d7f5adb6",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "a1927dc69f45eb27",
         "type": "discord-token",
         "name": "BB Intercom"
@@ -195,7 +184,7 @@
         "type": "ui_group",
         "name": "System",
         "tab": "dde4ad20d7f5adb6",
-        "order": 4,
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -206,7 +195,7 @@
         "type": "ui_group",
         "name": "Devices",
         "tab": "dde4ad20d7f5adb6",
-        "order": 3,
+        "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -258,36 +247,9 @@
         "wires": [
             [
                 "4fdef95ca19166b9",
-                "315ccb297c34d985",
                 "bb1d82dc729bc399"
             ]
         ]
-    },
-    {
-        "id": "315ccb297c34d985",
-        "type": "ui_led",
-        "z": "6632116403e2e61f",
-        "order": 5,
-        "group": "bb89cea21e2c6873",
-        "width": "4",
-        "height": "4",
-        "label": "Intercom",
-        "labelPlacement": "right",
-        "labelAlignment": "center",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "1",
-                "valueType": "num"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 310,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "cd9c0e1c014de82e",
@@ -297,7 +259,7 @@
         "channel": "1160625220114190376",
         "token": "a1927dc69f45eb27",
         "x": 1000,
-        "y": 80,
+        "y": 60,
         "wires": [
             [
                 "12db2d4f1533249e"
@@ -347,7 +309,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1190,
-        "y": 80,
+        "y": 60,
         "wires": []
     },
     {
@@ -421,7 +383,7 @@
         "adjAmount": 0,
         "adjType": "days",
         "adjDir": "add",
-        "format": "[DING-DONG @ ]HH:mm:ss",
+        "format": "[The doorbell has been pressed @ ]HH:mm:ss",
         "locale": "en-GB",
         "output": "",
         "outputType": "msg",
@@ -430,6 +392,7 @@
         "y": 80,
         "wires": [
             [
+                "dd846acf954e6afe",
                 "cd9c0e1c014de82e"
             ]
         ]
@@ -439,7 +402,7 @@
         "type": "ui_button",
         "z": "6632116403e2e61f",
         "name": "Door bell",
-        "group": "bb89cea21e2c6873",
+        "group": "58f8c24c9a9fdac1",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -521,81 +484,6 @@
         ]
     },
     {
-        "id": "ff414b533ecc6796",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/CleanRoom/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 460,
-        "wires": [
-            [
-                "6e9a8cc2cff53407",
-                "365e32bb1f96cb47"
-            ]
-        ]
-    },
-    {
-        "id": "6e9a8cc2cff53407",
-        "type": "debug",
-        "z": "6632116403e2e61f",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "365e32bb1f96cb47",
-        "type": "ui_led",
-        "z": "6632116403e2e61f",
-        "order": 2,
-        "group": "bb89cea21e2c6873",
-        "width": 0,
-        "height": 0,
-        "label": "Clean room light",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 370,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "ea87beb123cfa21a",
         "type": "inject",
         "z": "6632116403e2e61f",
@@ -613,13 +501,14 @@
         "payload": "10",
         "payloadType": "str",
         "x": 110,
-        "y": 660,
+        "y": 1040,
         "wires": [
             [
                 "2d4d5630891b366a",
                 "037b8ecc5b3114c9",
                 "615bedc1d06ebf8d",
-                "5db20b14df1f3f5d"
+                "5db20b14df1f3f5d",
+                "d57aa4a3fca503d6"
             ]
         ]
     },
@@ -667,7 +556,8 @@
                 "72103f5e92a5c1f4",
                 "031798345fa21d35",
                 "aaea4fb66f0aca6d",
-                "09dff09f02607602"
+                "09dff09f02607602",
+                "ce3d4f54bb3d27fc"
             ]
         ]
     },
@@ -692,14 +582,15 @@
         "topic": "",
         "payload": "10",
         "payloadType": "str",
-        "x": 650,
-        "y": 660,
+        "x": 690,
+        "y": 1020,
         "wires": [
             [
                 "a0a76ccd8f5ece03",
                 "9f746031f8edc01c",
                 "bbe28fd7cf6f4d25",
-                "e926a860ff4282b6"
+                "e926a860ff4282b6",
+                "978e96138a3b22f7"
             ]
         ]
     },
@@ -717,31 +608,9 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 920,
-        "y": 580,
+        "x": 980,
+        "y": 900,
         "wires": []
-    },
-    {
-        "id": "a0351b764bb58b62",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/CleanRoom/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 520,
-        "wires": [
-            [
-                "6e9a8cc2cff53407",
-                "365e32bb1f96cb47"
-            ]
-        ]
     },
     {
         "id": "2d4d5630891b366a",
@@ -757,8 +626,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 390,
-        "y": 600,
+        "x": 450,
+        "y": 920,
         "wires": []
     },
     {
@@ -775,8 +644,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 380,
-        "y": 660,
+        "x": 440,
+        "y": 980,
         "wires": []
     },
     {
@@ -793,8 +662,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 380,
-        "y": 720,
+        "x": 440,
+        "y": 1040,
         "wires": []
     },
     {
@@ -811,8 +680,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 920,
-        "y": 640,
+        "x": 980,
+        "y": 960,
         "wires": []
     },
     {
@@ -829,8 +698,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 920,
-        "y": 700,
+        "x": 980,
+        "y": 1020,
         "wires": []
     },
     {
@@ -870,200 +739,6 @@
         "wires": []
     },
     {
-        "id": "c58276166a6d3494",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/Woodwork/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 560,
-        "y": 460,
-        "wires": [
-            [
-                "c64f4e7d89bd1506",
-                "cf4e64a1ac2911dc"
-            ]
-        ]
-    },
-    {
-        "id": "c64f4e7d89bd1506",
-        "type": "debug",
-        "z": "6632116403e2e61f",
-        "name": "debug 7",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "cf4e64a1ac2911dc",
-        "type": "ui_led",
-        "z": "6632116403e2e61f",
-        "order": 3,
-        "group": "bb89cea21e2c6873",
-        "width": 0,
-        "height": 0,
-        "label": "Woodwork light",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 810,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "242aa3b65357b1d8",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/Woodwork/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 560,
-        "y": 520,
-        "wires": [
-            [
-                "c64f4e7d89bd1506",
-                "cf4e64a1ac2911dc"
-            ]
-        ]
-    },
-    {
-        "id": "5bc0cba4d316ff77",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/Metalwork/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1020,
-        "y": 460,
-        "wires": [
-            [
-                "a8581b2797103e2c",
-                "dbc1e4dcb8d7cf5f"
-            ]
-        ]
-    },
-    {
-        "id": "a8581b2797103e2c",
-        "type": "debug",
-        "z": "6632116403e2e61f",
-        "name": "debug 8",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1280,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "dbc1e4dcb8d7cf5f",
-        "type": "ui_led",
-        "z": "6632116403e2e61f",
-        "order": 4,
-        "group": "bb89cea21e2c6873",
-        "width": 0,
-        "height": 0,
-        "label": "Metalwork light",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1270,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "b5b7e43fa9a96260",
-        "type": "mqtt in",
-        "z": "6632116403e2e61f",
-        "name": "",
-        "topic": "stat/Metalwork/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1020,
-        "y": 520,
-        "wires": [
-            [
-                "a8581b2797103e2c",
-                "dbc1e4dcb8d7cf5f"
-            ]
-        ]
-    },
-    {
         "id": "09dff09f02607602",
         "type": "mqtt out",
         "z": "6632116403e2e61f",
@@ -1082,33 +757,44 @@
         "wires": []
     },
     {
-        "id": "2c93def30a1262d5",
-        "type": "mqtt in",
+        "id": "5db20b14df1f3f5d",
+        "type": "mqtt out",
         "z": "6632116403e2e61f",
         "name": "",
-        "topic": "stat/Movable/RESULT",
+        "topic": "cmnd/Movable/BlinkCount",
         "qos": "2",
-        "datatype": "auto-detect",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1200,
-        "y": 580,
+        "x": 430,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "dd846acf954e6afe",
+        "type": "discordMessageManager",
+        "z": "6632116403e2e61f",
+        "name": "Send message",
+        "channel": "1002808225252507658",
+        "token": "a1927dc69f45eb27",
+        "x": 1000,
+        "y": 120,
         "wires": [
             [
-                "a62cf3e8029eedc1",
-                "833373445aa1f849"
+                "c232c1256217fca4"
             ]
         ]
     },
     {
-        "id": "a62cf3e8029eedc1",
+        "id": "c232c1256217fca4",
         "type": "debug",
         "z": "6632116403e2e61f",
-        "name": "debug 15",
-        "active": false,
+        "name": "debug",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1116,67 +802,45 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1460,
-        "y": 580,
+        "x": 1190,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "833373445aa1f849",
-        "type": "ui_led",
-        "z": "6632116403e2e61f",
-        "order": 4,
-        "group": "bb89cea21e2c6873",
-        "width": 0,
-        "height": 0,
-        "label": "WiFi Plug",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 1450,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "90ad8d8ed9f682a3",
-        "type": "mqtt in",
+        "id": "ce3d4f54bb3d27fc",
+        "type": "mqtt out",
         "z": "6632116403e2e61f",
         "name": "",
-        "topic": "stat/Movable/POWER",
+        "topic": "cmnd/CR10SPro/POWER",
         "qos": "2",
-        "datatype": "auto-detect",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
         "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1200,
-        "y": 640,
-        "wires": [
-            [
-                "a62cf3e8029eedc1",
-                "833373445aa1f849"
-            ]
-        ]
+        "x": 850,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d57aa4a3fca503d6",
+        "type": "mqtt out",
+        "z": "6632116403e2e61f",
+        "name": "",
+        "topic": "cmnd/CR10SPro/BlinkCount",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 440,
+        "y": 1180,
+        "wires": []
     },
     {
         "id": "e926a860ff4282b6",
@@ -1192,16 +856,16 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 910,
-        "y": 760,
+        "x": 970,
+        "y": 1080,
         "wires": []
     },
     {
-        "id": "5db20b14df1f3f5d",
+        "id": "978e96138a3b22f7",
         "type": "mqtt out",
         "z": "6632116403e2e61f",
         "name": "",
-        "topic": "cmnd/Movable/BlinkCount",
+        "topic": "cmnd/CR10SPro/BlinkTime",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -1210,8 +874,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 370,
-        "y": 780,
+        "x": 980,
+        "y": 1140,
         "wires": []
     },
     {
@@ -2479,7 +2143,7 @@
         "z": "3fb3daf03c16c4aa",
         "name": "",
         "group": "58f8c24c9a9fdac1",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2579,7 +2243,7 @@
         "repeat": "60",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "0",
         "payloadType": "num",
@@ -2614,11 +2278,12 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
+        "x": 110,
         "y": 240,
         "wires": [
             [
-                "74b1fd0ad939eed8"
+                "74b1fd0ad939eed8",
+                "a0337e2766120fb4"
             ]
         ]
     },
@@ -2649,7 +2314,7 @@
         "z": "3fb3daf03c16c4aa",
         "name": "",
         "group": "58f8c24c9a9fdac1",
-        "order": 3,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2664,7 +2329,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "97f923e0c14bdc05"
@@ -2686,7 +2351,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 470,
-        "y": 380,
+        "y": 540,
         "wires": []
     },
     {
@@ -2707,7 +2372,7 @@
         "payload": "",
         "payloadType": "str",
         "x": 90,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "964019a886067cb6"
@@ -2729,7 +2394,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 330,
-        "y": 460,
+        "y": 620,
         "wires": []
     },
     {
@@ -2749,12 +2414,12 @@
         "repeat": "60",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "0",
         "payloadType": "num",
         "x": 100,
-        "y": 460,
+        "y": 620,
         "wires": [
             [
                 "9244b0acfac6e690"
@@ -2768,7 +2433,7 @@
         "name": "Query device status",
         "info": "",
         "x": 110,
-        "y": 420,
+        "y": 580,
         "wires": []
     },
     {
@@ -2777,7 +2442,7 @@
         "z": "3fb3daf03c16c4aa",
         "name": "",
         "group": "58f8c24c9a9fdac1",
-        "order": 5,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2877,7 +2542,7 @@
         "repeat": "60",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "0",
         "payloadType": "num",
@@ -2903,7 +2568,7 @@
         "id": "3c85a54ed4590989",
         "type": "ui_led",
         "z": "3fb3daf03c16c4aa",
-        "order": 2,
+        "order": 3,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -3019,7 +2684,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 130,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "24419641bb82a77e"
@@ -3040,7 +2705,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 110,
-        "y": 520,
+        "y": 680,
         "wires": [
             [
                 "e3cc6ce418d8fee7"
@@ -3051,7 +2716,7 @@
         "id": "0f3eb3b754a98119",
         "type": "ui_led",
         "z": "3fb3daf03c16c4aa",
-        "order": 4,
+        "order": 6,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -3075,7 +2740,7 @@
         "showGlow": true,
         "name": "Woodwork LED",
         "x": 640,
-        "y": 540,
+        "y": 700,
         "wires": []
     },
     {
@@ -3099,7 +2764,7 @@
         "to": "",
         "reg": false,
         "x": 330,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "a49f70704c63a424"
@@ -3126,7 +2791,7 @@
         "to": "",
         "reg": false,
         "x": 330,
-        "y": 520,
+        "y": 680,
         "wires": [
             [
                 "a49f70704c63a424"
@@ -3146,7 +2811,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 540,
+        "y": 700,
         "wires": [
             [
                 "0f3eb3b754a98119"
@@ -3199,7 +2864,7 @@
         "id": "8d2cdcbcf9f3c99f",
         "type": "ui_led",
         "z": "3fb3daf03c16c4aa",
-        "order": 6,
+        "order": 9,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -3319,7 +2984,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
                 "24419641bb82a77e"
@@ -3386,7 +3051,7 @@
         "z": "3fb3daf03c16c4aa",
         "name": "",
         "group": "58f8c24c9a9fdac1",
-        "order": 7,
+        "order": 11,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -3401,7 +3066,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 960,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "16e099ed722f9242"
@@ -3423,7 +3088,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 1190,
-        "y": 380,
+        "y": 540,
         "wires": []
     },
     {
@@ -3444,7 +3109,7 @@
         "payload": "",
         "payloadType": "str",
         "x": 810,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "1b8c1fcd649e4a85"
@@ -3466,7 +3131,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 1040,
-        "y": 460,
+        "y": 620,
         "wires": []
     },
     {
@@ -3486,12 +3151,12 @@
         "repeat": "60",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "1",
         "topic": "",
         "payload": "0",
         "payloadType": "num",
         "x": 820,
-        "y": 460,
+        "y": 620,
         "wires": [
             [
                 "313ed551990aab75"
@@ -3505,7 +3170,7 @@
         "name": "Query device status",
         "info": "",
         "x": 830,
-        "y": 420,
+        "y": 580,
         "wires": []
     },
     {
@@ -3522,7 +3187,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 840,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "104193d664f42e6e"
@@ -3543,7 +3208,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 830,
-        "y": 520,
+        "y": 680,
         "wires": [
             [
                 "93261282658663b6"
@@ -3554,7 +3219,7 @@
         "id": "05b264380ca6845a",
         "type": "ui_led",
         "z": "3fb3daf03c16c4aa",
-        "order": 8,
+        "order": 12,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -3578,7 +3243,7 @@
         "showGlow": true,
         "name": "WiFi Plug LED",
         "x": 1340,
-        "y": 540,
+        "y": 700,
         "wires": []
     },
     {
@@ -3602,7 +3267,7 @@
         "to": "",
         "reg": false,
         "x": 1050,
-        "y": 580,
+        "y": 740,
         "wires": [
             [
                 "bf810631b0cfeab3"
@@ -3629,7 +3294,7 @@
         "to": "",
         "reg": false,
         "x": 1030,
-        "y": 520,
+        "y": 680,
         "wires": [
             [
                 "bf810631b0cfeab3"
@@ -3649,7 +3314,7 @@
         "finalize": "",
         "libs": [],
         "x": 1190,
-        "y": 540,
+        "y": 700,
         "wires": [
             [
                 "05b264380ca6845a"
@@ -3674,11 +3339,813 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 890,
-        "y": 640,
+        "y": 800,
         "wires": [
             [
                 "104193d664f42e6e"
             ]
         ]
+    },
+    {
+        "id": "37b725953fefd689",
+        "type": "ui_button",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "CR10S Pro",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1040,
+        "wires": [
+            [
+                "f97586c06f4807d0"
+            ]
+        ]
+    },
+    {
+        "id": "f97586c06f4807d0",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/CR10SPro/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 470,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "c030fa3a281f13e2",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 1040,
+        "wires": [
+            [
+                "37b725953fefd689"
+            ]
+        ]
+    },
+    {
+        "id": "40a744d6a2e99011",
+        "type": "mqtt out",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "cmnd/CR10SPro/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 330,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "2826125af4938377",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 100,
+        "y": 1120,
+        "wires": [
+            [
+                "40a744d6a2e99011"
+            ]
+        ]
+    },
+    {
+        "id": "880adb318d6f1caa",
+        "type": "comment",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Query device status",
+        "info": "",
+        "x": 110,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "8b368b54bcf6c9cf",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CR10SPro/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1240,
+        "wires": [
+            [
+                "d3f38faa7ae93731"
+            ]
+        ]
+    },
+    {
+        "id": "31048174dcc92e63",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "tele/CR10SPro/LWT",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1180,
+        "wires": [
+            [
+                "81bb364fe201e234"
+            ]
+        ]
+    },
+    {
+        "id": "b6a2d94e62926101",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 15,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "CR10SPro LED",
+        "x": 640,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "d3f38faa7ae93731",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WoodworkIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1240,
+        "wires": [
+            [
+                "fe41f0e5406c2bfd"
+            ]
+        ]
+    },
+    {
+        "id": "81bb364fe201e234",
+        "type": "change",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WoodworkStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1180,
+        "wires": [
+            [
+                "fe41f0e5406c2bfd"
+            ]
+        ]
+    },
+    {
+        "id": "fe41f0e5406c2bfd",
+        "type": "function",
+        "z": "3fb3daf03c16c4aa",
+        "name": "Join",
+        "func": "msg.topic = flow.get('WoodworkIP');\nmsg.payload = flow.get('WoodworkStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1200,
+        "wires": [
+            [
+                "b6a2d94e62926101"
+            ]
+        ]
+    },
+    {
+        "id": "c0588a30bca866ce",
+        "type": "inject",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1280,
+        "wires": [
+            [
+                "d3f38faa7ae93731"
+            ]
+        ]
+    },
+    {
+        "id": "a0337e2766120fb4",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "73606bce1fda2480",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CleanRoom/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "4c308de07af6c84b",
+                "a31e778788fc1099"
+            ]
+        ]
+    },
+    {
+        "id": "4c308de07af6c84b",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 18",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a31e778788fc1099",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 4,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "Clean room light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Cleanroom OnOff LED",
+        "x": 420,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "82f37814d707ecca",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CleanRoom/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "4c308de07af6c84b",
+                "a31e778788fc1099"
+            ]
+        ]
+    },
+    {
+        "id": "5bc0cba4d316ff77",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Metalwork/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "a8581b2797103e2c",
+                "dbc1e4dcb8d7cf5f"
+            ]
+        ]
+    },
+    {
+        "id": "a8581b2797103e2c",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "dbc1e4dcb8d7cf5f",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 10,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "Metalwork light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Metalwork OnOff LED",
+        "x": 1140,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b5b7e43fa9a96260",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Metalwork/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 420,
+        "wires": [
+            [
+                "a8581b2797103e2c",
+                "dbc1e4dcb8d7cf5f"
+            ]
+        ]
+    },
+    {
+        "id": "90ad8d8ed9f682a3",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Movable/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 920,
+        "wires": [
+            [
+                "a62cf3e8029eedc1",
+                "833373445aa1f849"
+            ]
+        ]
+    },
+    {
+        "id": "2c93def30a1262d5",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Movable/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 860,
+        "wires": [
+            [
+                "a62cf3e8029eedc1",
+                "833373445aa1f849"
+            ]
+        ]
+    },
+    {
+        "id": "a62cf3e8029eedc1",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 15",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "833373445aa1f849",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 13,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "WiFi Plug",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "WiFi Plug OnOff LED",
+        "x": 1140,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "c58276166a6d3494",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Woodwork/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 840,
+        "wires": [
+            [
+                "c64f4e7d89bd1506",
+                "cf4e64a1ac2911dc"
+            ]
+        ]
+    },
+    {
+        "id": "c64f4e7d89bd1506",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "cf4e64a1ac2911dc",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 7,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "Woodwork light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Woodwork OnOff LED",
+        "x": 420,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "242aa3b65357b1d8",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/Woodwork/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 900,
+        "wires": [
+            [
+                "c64f4e7d89bd1506",
+                "cf4e64a1ac2911dc"
+            ]
+        ]
+    },
+    {
+        "id": "b82897e73783f40c",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CR10SPro/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 1400,
+        "wires": [
+            [
+                "1c68bf68c05ea073",
+                "fa98ce3c06d13fb2"
+            ]
+        ]
+    },
+    {
+        "id": "fe30bf5c750b70e2",
+        "type": "mqtt in",
+        "z": "3fb3daf03c16c4aa",
+        "name": "",
+        "topic": "stat/CR10SPro/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1340,
+        "wires": [
+            [
+                "1c68bf68c05ea073",
+                "fa98ce3c06d13fb2"
+            ]
+        ]
+    },
+    {
+        "id": "1c68bf68c05ea073",
+        "type": "debug",
+        "z": "3fb3daf03c16c4aa",
+        "name": "debug 16",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "fa98ce3c06d13fb2",
+        "type": "ui_led",
+        "z": "3fb3daf03c16c4aa",
+        "order": 16,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "CR10S Pro",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "{\"POWER\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "CR10SPro OnOff LED",
+        "x": 420,
+        "y": 1400,
+        "wires": []
     }
 ]
