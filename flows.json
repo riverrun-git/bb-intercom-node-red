@@ -23,14 +23,6 @@
         "env": []
     },
     {
-        "id": "bde1ee4da20c452f",
-        "type": "tab",
-        "label": "Alexa Test",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "0d812e09d413a274",
         "type": "tab",
         "label": "Devices",
@@ -213,23 +205,6 @@
         "className": ""
     },
     {
-        "id": "a837536d1ffc2e9d",
-        "type": "debug",
-        "z": "e0c8c764cd92cafb",
-        "name": "debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 310,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "c27ea1daa597e04a",
         "type": "mqtt in",
         "z": "e0c8c764cd92cafb",
@@ -246,7 +221,6 @@
         "y": 120,
         "wires": [
             [
-                "a837536d1ffc2e9d",
                 "3f3096deea1218a3"
             ]
         ]
@@ -1441,12 +1415,13 @@
         "name": "debug 6",
         "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 530,
         "y": 580,
         "wires": []
     },
@@ -2282,52 +2257,6 @@
         "color": "#000000",
         "x": 600,
         "y": 320,
-        "wires": []
-    },
-    {
-        "id": "e7a881e17881d944",
-        "type": "amazon-echo-hub",
-        "z": "bde1ee4da20c452f",
-        "port": "8080",
-        "processinput": "2",
-        "discovery": true,
-        "x": 310,
-        "y": 260,
-        "wires": [
-            [
-                "ce6916dcbcf41781"
-            ]
-        ]
-    },
-    {
-        "id": "ce6916dcbcf41781",
-        "type": "amazon-echo-device",
-        "z": "bde1ee4da20c452f",
-        "name": "New socket",
-        "topic": "/newsocket/power",
-        "x": 590,
-        "y": 260,
-        "wires": [
-            [
-                "ef6ce2e855f87cf8"
-            ]
-        ]
-    },
-    {
-        "id": "ef6ce2e855f87cf8",
-        "type": "debug",
-        "z": "bde1ee4da20c452f",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 860,
-        "y": 260,
         "wires": []
     },
     {
@@ -3248,7 +3177,7 @@
         "width": 0,
         "height": 0,
         "passthru": true,
-        "label": "WiFi Plug",
+        "label": "Main Room",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -3258,7 +3187,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 960,
+        "x": 970,
         "y": 540,
         "wires": [
             [
@@ -3549,7 +3478,7 @@
         "width": 0,
         "height": 0,
         "passthru": true,
-        "label": "CR10S Pro",
+        "label": "Clean Room 2",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -3559,7 +3488,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
+        "x": 260,
         "y": 1040,
         "wires": [
             [
@@ -3883,7 +3812,7 @@
         "type": "debug",
         "z": "0d812e09d413a274",
         "name": "debug 18",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3909,7 +3838,7 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
+                "value": "{\"POWER1\":\"Blink ON\"}",
                 "valueType": "json"
             },
             {
@@ -3918,8 +3847,8 @@
                 "valueType": "str"
             },
             {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
                 "valueType": "json"
             }
         ],
@@ -4006,7 +3935,7 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
+                "value": "{\"POWER1\":\"Blink ON\"}",
                 "valueType": "json"
             },
             {
@@ -4015,8 +3944,8 @@
                 "valueType": "str"
             },
             {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
                 "valueType": "json"
             }
         ],
@@ -4099,7 +4028,7 @@
         "type": "debug",
         "z": "0d812e09d413a274",
         "name": "debug 15",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4125,7 +4054,7 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
+                "value": "{\"POWER1\":\"Blink ON\"}",
                 "valueType": "json"
             },
             {
@@ -4134,8 +4063,8 @@
                 "valueType": "str"
             },
             {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
                 "valueType": "json"
             }
         ],
@@ -4200,7 +4129,7 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
+                "value": "{\"POWER1\":\"Blink ON\"}",
                 "valueType": "json"
             },
             {
@@ -4209,8 +4138,8 @@
                 "valueType": "str"
             },
             {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
                 "valueType": "json"
             }
         ],
@@ -4319,7 +4248,7 @@
         "colorForValue": [
             {
                 "color": "#ff0000",
-                "value": "{\"POWER\":\"Blink ON\"}",
+                "value": "{\"POWER1\":\"Blink ON\"}",
                 "valueType": "json"
             },
             {
@@ -4328,8 +4257,8 @@
                 "valueType": "str"
             },
             {
-                "color": "#008000",
-                "value": "{\"POWER\":\"ON\"}",
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
                 "valueType": "json"
             }
         ],
@@ -4339,6 +4268,43 @@
         "name": "CR10SPro OnOff LED",
         "x": 420,
         "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "96576387085b70a1",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/CleanRoom/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 850,
+        "y": 1040,
+        "wires": [
+            [
+                "0fd9bdac18a27ed4"
+            ]
+        ]
+    },
+    {
+        "id": "0fd9bdac18a27ed4",
+        "type": "debug",
+        "z": "0d812e09d413a274",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 1040,
         "wires": []
     }
 ]
