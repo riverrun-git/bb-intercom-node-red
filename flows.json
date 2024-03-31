@@ -229,15 +229,14 @@
         "id": "c6e4ed25a02d504f",
         "type": "discordMessageManager",
         "z": "e0c8c764cd92cafb",
-        "name": "Send message",
+        "name": "Test message",
         "channel": "1160625220114190376",
         "token": "a1927dc69f45eb27",
         "x": 1000,
         "y": 60,
         "wires": [
             [
-                "a88d8d84059518ea",
-                "bab874d39343ad7e"
+                "a88d8d84059518ea"
             ]
         ]
     },
@@ -283,8 +282,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1240,
-        "y": 40,
+        "x": 1260,
+        "y": 60,
         "wires": []
     },
     {
@@ -475,8 +474,8 @@
         "topic": "",
         "payload": "10",
         "payloadType": "str",
-        "x": 110,
-        "y": 1040,
+        "x": 190,
+        "y": 820,
         "wires": [
             [
                 "0383925a09b90b6b",
@@ -557,8 +556,8 @@
         "topic": "",
         "payload": "10",
         "payloadType": "str",
-        "x": 690,
-        "y": 1020,
+        "x": 770,
+        "y": 800,
         "wires": [
             [
                 "d0ed4ee3cb8f4fd5",
@@ -583,8 +582,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 980,
-        "y": 900,
+        "x": 1060,
+        "y": 680,
         "wires": []
     },
     {
@@ -601,8 +600,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 450,
-        "y": 920,
+        "x": 530,
+        "y": 700,
         "wires": []
     },
     {
@@ -619,8 +618,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 440,
-        "y": 980,
+        "x": 520,
+        "y": 760,
         "wires": []
     },
     {
@@ -637,8 +636,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 440,
-        "y": 1040,
+        "x": 520,
+        "y": 820,
         "wires": []
     },
     {
@@ -655,8 +654,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 980,
-        "y": 960,
+        "x": 1060,
+        "y": 740,
         "wires": []
     },
     {
@@ -673,8 +672,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 980,
-        "y": 1020,
+        "x": 1060,
+        "y": 800,
         "wires": []
     },
     {
@@ -745,23 +744,22 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 430,
-        "y": 1100,
+        "x": 510,
+        "y": 880,
         "wires": []
     },
     {
         "id": "4a94668b048679ef",
         "type": "discordMessageManager",
         "z": "e0c8c764cd92cafb",
-        "name": "Send message",
+        "name": "BB messsage",
         "channel": "1002808225252507658",
         "token": "a1927dc69f45eb27",
         "x": 1000,
         "y": 120,
         "wires": [
             [
-                "2830abc59c0c5e9a",
-                "bab874d39343ad7e"
+                "2830abc59c0c5e9a"
             ]
         ]
     },
@@ -778,8 +776,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1240,
-        "y": 160,
+        "x": 1260,
+        "y": 120,
         "wires": []
     },
     {
@@ -814,8 +812,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 440,
-        "y": 1180,
+        "x": 520,
+        "y": 960,
         "wires": []
     },
     {
@@ -832,8 +830,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 970,
-        "y": 1080,
+        "x": 1050,
+        "y": 860,
         "wires": []
     },
     {
@@ -850,8 +848,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 980,
-        "y": 1140,
+        "x": 1060,
+        "y": 920,
         "wires": []
     },
     {
@@ -894,7 +892,7 @@
             }
         ],
         "repeat": "",
-        "crontab": "0 8-23 * * *",
+        "crontab": "0 0-23 * * *",
         "once": true,
         "onceDelay": "60",
         "topic": "",
@@ -909,6 +907,23 @@
         ]
     },
     {
+        "id": "bf7bdd76eb3cc144",
+        "type": "status",
+        "z": "e0c8c764cd92cafb",
+        "name": "",
+        "scope": [
+            "c6e4ed25a02d504f",
+            "4a94668b048679ef"
+        ],
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "1299128d2c45d549"
+            ]
+        ]
+    },
+    {
         "id": "bab874d39343ad7e",
         "type": "file",
         "z": "e0c8c764cd92cafb",
@@ -919,10 +934,125 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1240,
-        "y": 100,
+        "x": 720,
+        "y": 600,
         "wires": [
+            [
+                "42ba722a45e8a64a"
+            ]
+        ]
+    },
+    {
+        "id": "cea76903f8d03891",
+        "type": "switch",
+        "z": "e0c8c764cd92cafb",
+        "name": "",
+        "property": "status.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": ".*Error.*",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 540,
+        "wires": [
+            [
+                "3b61d5ce7503b6ac"
+            ],
             []
+        ]
+    },
+    {
+        "id": "42ba722a45e8a64a",
+        "type": "debug",
+        "z": "e0c8c764cd92cafb",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3b61d5ce7503b6ac",
+        "type": "delay",
+        "z": "e0c8c764cd92cafb",
+        "name": "Wait a little",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 520,
+        "wires": [
+            [
+                "7735ce94c4b4fa24"
+            ]
+        ]
+    },
+    {
+        "id": "7735ce94c4b4fa24",
+        "type": "exec",
+        "z": "e0c8c764cd92cafb",
+        "command": "sudo reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 1160,
+        "y": 520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1299128d2c45d549",
+        "type": "function",
+        "z": "e0c8c764cd92cafb",
+        "name": "Add timestamp",
+        "func": "const now = new Date().toLocaleTimeString();\nmsg.payload = `${now}: ${msg.status?.source?.name} - ${msg.status?.text}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "bab874d39343ad7e",
+                "cea76903f8d03891"
+            ]
         ]
     },
     {
@@ -3812,7 +3942,7 @@
         "type": "debug",
         "z": "0d812e09d413a274",
         "name": "debug 18",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4028,7 +4158,7 @@
         "type": "debug",
         "z": "0d812e09d413a274",
         "name": "debug 15",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4296,7 +4426,7 @@
         "type": "debug",
         "z": "0d812e09d413a274",
         "name": "debug 20",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
