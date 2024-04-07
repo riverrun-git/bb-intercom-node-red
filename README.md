@@ -5,4 +5,3 @@
 * node-red-contrib-discord-advanced
 * node-red-contrib-moment
 * node-red-contrib-fs
-* node-red-contrib-amazon-echo (optional and experimental)

@@ -474,15 +474,13 @@
         "topic": "",
         "payload": "10",
         "payloadType": "str",
-        "x": 190,
-        "y": 820,
+        "x": 130,
+        "y": 740,
         "wires": [
             [
                 "0383925a09b90b6b",
                 "03588be6713a9bd7",
-                "40a85188160be64a",
-                "4ef23a354b37bb90",
-                "fcdeefdd90eac01b"
+                "4ef23a354b37bb90"
             ]
         ]
     },
@@ -491,7 +489,7 @@
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/CleanRoom/POWER",
+        "topic": "cmnd/Cleanroom/POWER",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -500,7 +498,7 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 860,
+        "x": 850,
         "y": 180,
         "wires": []
     },
@@ -529,9 +527,7 @@
             [
                 "767bc7d4d90d9997",
                 "deb992eabe79050d",
-                "a23391dbdd584507",
-                "ac07f530f44de849",
-                "6e794c3cf14f507c"
+                "ac07f530f44de849"
             ]
         ]
     },
@@ -557,14 +553,12 @@
         "payload": "10",
         "payloadType": "str",
         "x": 770,
-        "y": 800,
+        "y": 740,
         "wires": [
             [
                 "d0ed4ee3cb8f4fd5",
                 "2c66733d1bd5e627",
-                "7c37f5078501bb19",
-                "92d77a952703ebe6",
-                "3dad4040a8a0fceb"
+                "92d77a952703ebe6"
             ]
         ]
     },
@@ -573,7 +567,7 @@
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/CleanRoom/BlinkTime",
+        "topic": "cmnd/Cleanroom/BlinkTime",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -583,7 +577,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 1060,
-        "y": 680,
+        "y": 660,
         "wires": []
     },
     {
@@ -591,7 +585,7 @@
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/CleanRoom/BlinkCount",
+        "topic": "cmnd/Cleanroom/BlinkCount",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -600,8 +594,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 530,
-        "y": 700,
+        "x": 460,
+        "y": 680,
         "wires": []
     },
     {
@@ -618,26 +612,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 520,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "40a85188160be64a",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/Metalwork/BlinkCount",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 520,
-        "y": 820,
+        "x": 460,
+        "y": 740,
         "wires": []
     },
     {
@@ -655,25 +631,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 1060,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "7c37f5078501bb19",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/Metalwork/BlinkTime",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 1060,
-        "y": 800,
+        "y": 720,
         "wires": []
     },
     {
@@ -695,11 +653,11 @@
         "wires": []
     },
     {
-        "id": "a23391dbdd584507",
+        "id": "ac07f530f44de849",
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/Metalwork/POWER",
+        "topic": "cmnd/Mainroom/POWER",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -713,29 +671,11 @@
         "wires": []
     },
     {
-        "id": "ac07f530f44de849",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/Movable/POWER",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 850,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "4ef23a354b37bb90",
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/Movable/BlinkCount",
+        "topic": "cmnd/Mainroom/BlinkCount",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -744,8 +684,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 510,
-        "y": 880,
+        "x": 460,
+        "y": 800,
         "wires": []
     },
     {
@@ -781,65 +721,11 @@
         "wires": []
     },
     {
-        "id": "6e794c3cf14f507c",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/CR10SPro/POWER",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 850,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "fcdeefdd90eac01b",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/CR10SPro/BlinkCount",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 520,
-        "y": 960,
-        "wires": []
-    },
-    {
         "id": "92d77a952703ebe6",
         "type": "mqtt out",
         "z": "e0c8c764cd92cafb",
         "name": "",
-        "topic": "cmnd/Movable/BlinkTime",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 1050,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "3dad4040a8a0fceb",
-        "type": "mqtt out",
-        "z": "e0c8c764cd92cafb",
-        "name": "",
-        "topic": "cmnd/CR10SPro/BlinkTime",
+        "topic": "cmnd/Mainroom/BlinkTime",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -849,7 +735,7 @@
         "expiry": "",
         "broker": "38e902423e538381",
         "x": 1060,
-        "y": 920,
+        "y": 780,
         "wires": []
     },
     {
@@ -915,8 +801,8 @@
             "c6e4ed25a02d504f",
             "4a94668b048679ef"
         ],
-        "x": 120,
-        "y": 540,
+        "x": 100,
+        "y": 460,
         "wires": [
             [
                 "1299128d2c45d549"
@@ -934,8 +820,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 720,
-        "y": 600,
+        "x": 700,
+        "y": 520,
         "wires": [
             [
                 "42ba722a45e8a64a"
@@ -963,8 +849,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 710,
-        "y": 540,
+        "x": 690,
+        "y": 460,
         "wires": [
             [
                 "3b61d5ce7503b6ac"
@@ -985,8 +871,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 600,
+        "x": 940,
+        "y": 520,
         "wires": []
     },
     {
@@ -1006,8 +892,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 970,
-        "y": 520,
+        "x": 950,
+        "y": 440,
         "wires": [
             [
                 "7735ce94c4b4fa24"
@@ -1027,7 +913,7 @@
         "oldrc": false,
         "name": "Reboot",
         "x": 1160,
-        "y": 520,
+        "y": 440,
         "wires": [
             [],
             [],
@@ -1046,14 +932,44 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 540,
+        "x": 400,
+        "y": 460,
         "wires": [
             [
                 "bab874d39343ad7e",
                 "cea76903f8d03891"
             ]
         ]
+    },
+    {
+        "id": "75628fb9b5074cb5",
+        "type": "comment",
+        "z": "e0c8c764cd92cafb",
+        "name": "Reboot if Discord message fails",
+        "info": "",
+        "x": 170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7ec26015990ea567",
+        "type": "comment",
+        "z": "e0c8c764cd92cafb",
+        "name": "Set blink count",
+        "info": "",
+        "x": 120,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b5faa86b336e23ef",
+        "type": "comment",
+        "z": "e0c8c764cd92cafb",
+        "name": "Set time between blinks in 0.1s",
+        "info": "",
+        "x": 770,
+        "y": 640,
+        "wires": []
     },
     {
         "id": "b31ce0e4f4660e16",
@@ -2422,7 +2338,7 @@
         "type": "mqtt out",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "cmnd/CleanRoom/POWER",
+        "topic": "cmnd/Cleanroom/POWER",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -2431,7 +2347,7 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 480,
+        "x": 470,
         "y": 40,
         "wires": []
     },
@@ -2465,7 +2381,7 @@
         "type": "mqtt out",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "cmnd/CleanRoom/Status",
+        "topic": "cmnd/Cleanroom/Status",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -2522,7 +2438,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/CleanRoom/STATUS5",
+        "topic": "stat/Cleanroom/STATUS5",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -2544,7 +2460,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "tele/CleanRoom/LWT",
+        "topic": "tele/Cleanroom/LWT",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -2552,7 +2468,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 120,
+        "x": 110,
         "y": 180,
         "wires": [
             [
@@ -2686,134 +2602,6 @@
         "info": "",
         "x": 110,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "258deff55918cf15",
-        "type": "ui_button",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "group": "58f8c24c9a9fdac1",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "label": "Metalwork",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "TOGGLE",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 970,
-        "y": 40,
-        "wires": [
-            [
-                "9338a053086d295b"
-            ]
-        ]
-    },
-    {
-        "id": "9338a053086d295b",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/Metalwork/POWER",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 1190,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "c105ecd7bd4f47b2",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Toggle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 810,
-        "y": 40,
-        "wires": [
-            [
-                "258deff55918cf15"
-            ]
-        ]
-    },
-    {
-        "id": "1f3a7baa3fb33aa1",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/Metalwork/Status",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 1050,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "6d82ac629dd3729f",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "x": 820,
-        "y": 120,
-        "wires": [
-            [
-                "1f3a7baa3fb33aa1"
-            ]
-        ]
-    },
-    {
-        "id": "7fcb7e7a8d0f3fce",
-        "type": "comment",
-        "z": "0d812e09d413a274",
-        "name": "Query device status",
-        "info": "",
-        "x": 830,
-        "y": 80,
         "wires": []
     },
     {
@@ -3071,154 +2859,6 @@
         ]
     },
     {
-        "id": "883ebdd97c7b4070",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Metalwork/STATUS5",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 850,
-        "y": 240,
-        "wires": [
-            [
-                "e9b98282bacc751c"
-            ]
-        ]
-    },
-    {
-        "id": "ecc1f483d96bc5e2",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "tele/Metalwork/LWT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 830,
-        "y": 180,
-        "wires": [
-            [
-                "1835b281e22f1361"
-            ]
-        ]
-    },
-    {
-        "id": "8b0d1acac0733601",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 9,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "{{msg.topic}}",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "Offline",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "Online",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Metalwork LED",
-        "x": 1340,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "e9b98282bacc751c",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "IP",
-        "rules": [
-            {
-                "t": "set",
-                "p": "MetalworkIP",
-                "pt": "flow",
-                "to": "payload.StatusNET.IPAddress",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1050,
-        "y": 240,
-        "wires": [
-            [
-                "0fe2a774fda6427c"
-            ]
-        ]
-    },
-    {
-        "id": "1835b281e22f1361",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "MetalworkStatus",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1030,
-        "y": 180,
-        "wires": [
-            [
-                "0fe2a774fda6427c"
-            ]
-        ]
-    },
-    {
-        "id": "0fe2a774fda6427c",
-        "type": "function",
-        "z": "0d812e09d413a274",
-        "name": "Join",
-        "func": "msg.topic = flow.get('MetalworkIP') || 'Waiting...';\nmsg.payload = flow.get('MetalworkStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 200,
-        "wires": [
-            [
-                "8b0d1acac0733601"
-            ]
-        ]
-    },
-    {
         "id": "711cd86d14a372e5",
         "type": "inject",
         "z": "0d812e09d413a274",
@@ -3273,31 +2913,6 @@
         ]
     },
     {
-        "id": "372d13110422b859",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "props": [
-            {
-                "p": "payload.StatusNET.IPAddress",
-                "v": "Not found",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 890,
-        "y": 300,
-        "wires": [
-            [
-                "e9b98282bacc751c"
-            ]
-        ]
-    },
-    {
         "id": "945802a40659c8c2",
         "type": "ui_button",
         "z": "0d812e09d413a274",
@@ -3317,8 +2932,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 970,
-        "y": 540,
+        "x": 1010,
+        "y": 40,
         "wires": [
             [
                 "b0aeb268b9663fc5"
@@ -3330,7 +2945,7 @@
         "type": "mqtt out",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "cmnd/Movable/POWER",
+        "topic": "cmnd/Mainroom/POWER",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -3339,8 +2954,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 1190,
-        "y": 540,
+        "x": 1230,
+        "y": 40,
         "wires": []
     },
     {
@@ -3360,8 +2975,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 810,
-        "y": 540,
+        "x": 850,
+        "y": 40,
         "wires": [
             [
                 "945802a40659c8c2"
@@ -3373,7 +2988,7 @@
         "type": "mqtt out",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "cmnd/Movable/Status",
+        "topic": "cmnd/Mainroom/Status",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -3382,8 +2997,8 @@
         "correl": "",
         "expiry": "",
         "broker": "38e902423e538381",
-        "x": 1040,
-        "y": 620,
+        "x": 1090,
+        "y": 120,
         "wires": []
     },
     {
@@ -3407,8 +3022,8 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 820,
-        "y": 620,
+        "x": 860,
+        "y": 120,
         "wires": [
             [
                 "497d0d4254d5144b"
@@ -3421,8 +3036,8 @@
         "z": "0d812e09d413a274",
         "name": "Query device status",
         "info": "",
-        "x": 830,
-        "y": 580,
+        "x": 870,
+        "y": 80,
         "wires": []
     },
     {
@@ -3430,7 +3045,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/Movable/STATUS5",
+        "topic": "stat/Mainroom/STATUS5",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -3438,8 +3053,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 840,
-        "y": 740,
+        "x": 890,
+        "y": 240,
         "wires": [
             [
                 "e46a51faabbef3ae"
@@ -3451,7 +3066,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "tele/Movable/LWT",
+        "topic": "tele/Mainroom/LWT",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -3459,8 +3074,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 830,
-        "y": 680,
+        "x": 870,
+        "y": 180,
         "wires": [
             [
                 "6b293e1a3bf59b2f"
@@ -3493,9 +3108,9 @@
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showGlow": true,
-        "name": "WiFi Plug LED",
-        "x": 1340,
-        "y": 700,
+        "name": "Main Room LED",
+        "x": 1380,
+        "y": 200,
         "wires": []
     },
     {
@@ -3518,8 +3133,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1050,
-        "y": 740,
+        "x": 1090,
+        "y": 240,
         "wires": [
             [
                 "2eba751e02158a7e"
@@ -3545,8 +3160,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 680,
+        "x": 1070,
+        "y": 180,
         "wires": [
             [
                 "2eba751e02158a7e"
@@ -3565,8 +3180,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 700,
+        "x": 1230,
+        "y": 200,
         "wires": [
             [
                 "20117b99156c0f55"
@@ -3590,312 +3205,11 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 890,
-        "y": 800,
+        "x": 930,
+        "y": 300,
         "wires": [
             [
                 "e46a51faabbef3ae"
-            ]
-        ]
-    },
-    {
-        "id": "052ab9287b86ef26",
-        "type": "ui_button",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "group": "58f8c24c9a9fdac1",
-        "order": 14,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "label": "Clean Room 2",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "TOGGLE",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 260,
-        "y": 1040,
-        "wires": [
-            [
-                "7bbc2cca29364858"
-            ]
-        ]
-    },
-    {
-        "id": "7bbc2cca29364858",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/CR10SPro/POWER",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 470,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "b842f829c94d0e4a",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Toggle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 90,
-        "y": 1040,
-        "wires": [
-            [
-                "052ab9287b86ef26"
-            ]
-        ]
-    },
-    {
-        "id": "0a1b7172be4ee2dc",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/CR10SPro/Status",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 330,
-        "y": 1120,
-        "wires": []
-    },
-    {
-        "id": "4dc36140e1299a77",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "x": 100,
-        "y": 1120,
-        "wires": [
-            [
-                "0a1b7172be4ee2dc"
-            ]
-        ]
-    },
-    {
-        "id": "bd6c541ce84ff5b6",
-        "type": "comment",
-        "z": "0d812e09d413a274",
-        "name": "Query device status",
-        "info": "",
-        "x": 110,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "ab7c0cf7f082c57f",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/CR10SPro/STATUS5",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 1240,
-        "wires": [
-            [
-                "d4c9f79d17f6efcb"
-            ]
-        ]
-    },
-    {
-        "id": "c8e928fbb7602c00",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "tele/CR10SPro/LWT",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 1180,
-        "wires": [
-            [
-                "57d340e0b8fdfd90"
-            ]
-        ]
-    },
-    {
-        "id": "1a0591cc4e575a59",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 15,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "{{msg.topic}}",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "Offline",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "Online",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "CR10SPro LED",
-        "x": 640,
-        "y": 1200,
-        "wires": []
-    },
-    {
-        "id": "d4c9f79d17f6efcb",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "IP",
-        "rules": [
-            {
-                "t": "set",
-                "p": "WoodworkIP",
-                "pt": "flow",
-                "to": "payload.StatusNET.IPAddress",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 1240,
-        "wires": [
-            [
-                "a53b45f1fee198dd"
-            ]
-        ]
-    },
-    {
-        "id": "57d340e0b8fdfd90",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "WoodworkStatus",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 1180,
-        "wires": [
-            [
-                "a53b45f1fee198dd"
-            ]
-        ]
-    },
-    {
-        "id": "a53b45f1fee198dd",
-        "type": "function",
-        "z": "0d812e09d413a274",
-        "name": "Join",
-        "func": "msg.topic = flow.get('WoodworkIP');\nmsg.payload = flow.get('WoodworkStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 1200,
-        "wires": [
-            [
-                "1a0591cc4e575a59"
-            ]
-        ]
-    },
-    {
-        "id": "291082afe00143b8",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "props": [
-            {
-                "p": "payload.StatusNET.IPAddress",
-                "v": "Not found",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 190,
-        "y": 1280,
-        "wires": [
-            [
-                "d4c9f79d17f6efcb"
             ]
         ]
     },
@@ -3920,7 +3234,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/CleanRoom/RESULT",
+        "topic": "stat/Cleanroom/RESULT",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -3962,7 +3276,7 @@
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
-        "label": "Clean room light",
+        "label": "Clean Room Light",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -3995,7 +3309,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/CleanRoom/POWER",
+        "topic": "stat/Cleanroom/POWER",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -4013,108 +3327,11 @@
         ]
     },
     {
-        "id": "77ce997e3df61791",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Metalwork/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 840,
-        "y": 360,
-        "wires": [
-            [
-                "8b416d5377db1af8",
-                "2073c8c49c5bd886"
-            ]
-        ]
-    },
-    {
-        "id": "8b416d5377db1af8",
-        "type": "debug",
-        "z": "0d812e09d413a274",
-        "name": "debug 8",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1100,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "2073c8c49c5bd886",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 10,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "Metalwork light",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER1\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#ffa500",
-                "value": "{\"POWER1\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Metalwork OnOff LED",
-        "x": 1140,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "583a531153aba802",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Metalwork/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 840,
-        "y": 420,
-        "wires": [
-            [
-                "8b416d5377db1af8",
-                "2073c8c49c5bd886"
-            ]
-        ]
-    },
-    {
         "id": "863853af905fdd43",
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/Movable/POWER",
+        "topic": "stat/Mainroom/POWER",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -4122,8 +3339,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 840,
-        "y": 920,
+        "x": 880,
+        "y": 420,
         "wires": [
             [
                 "38227d2fa1999dbe",
@@ -4136,7 +3353,7 @@
         "type": "mqtt in",
         "z": "0d812e09d413a274",
         "name": "",
-        "topic": "stat/Movable/RESULT",
+        "topic": "stat/Mainroom/RESULT",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "38e902423e538381",
@@ -4144,8 +3361,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 840,
-        "y": 860,
+        "x": 880,
+        "y": 360,
         "wires": [
             [
                 "38227d2fa1999dbe",
@@ -4166,8 +3383,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 860,
+        "x": 1140,
+        "y": 360,
         "wires": []
     },
     {
@@ -4178,7 +3395,7 @@
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
-        "label": "WiFi Plug",
+        "label": "Main Room Light",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -4201,9 +3418,9 @@
         "allowColorForValueInMessage": false,
         "shape": "circle",
         "showGlow": true,
-        "name": "WiFi Plug OnOff LED",
-        "x": 1140,
-        "y": 920,
+        "name": "Mainroom OnOff LED",
+        "x": 1180,
+        "y": 420,
         "wires": []
     },
     {
@@ -4253,7 +3470,7 @@
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
-        "label": "Woodwork light",
+        "label": "Woodwork Light",
         "labelPlacement": "left",
         "labelAlignment": "left",
         "colorForValue": [
@@ -4302,139 +3519,5 @@
                 "d8cf96821c9de6b7"
             ]
         ]
-    },
-    {
-        "id": "cab1e4710b14d650",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/CR10SPro/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 1400,
-        "wires": [
-            [
-                "266cafc0994c6198",
-                "9ab1f4632e8e1fbc"
-            ]
-        ]
-    },
-    {
-        "id": "91e1eabf337eb583",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/CR10SPro/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 1340,
-        "wires": [
-            [
-                "266cafc0994c6198",
-                "9ab1f4632e8e1fbc"
-            ]
-        ]
-    },
-    {
-        "id": "266cafc0994c6198",
-        "type": "debug",
-        "z": "0d812e09d413a274",
-        "name": "debug 16",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 1340,
-        "wires": []
-    },
-    {
-        "id": "9ab1f4632e8e1fbc",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 16,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "CR10S Pro",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER1\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#ffa500",
-                "value": "{\"POWER1\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "CR10SPro OnOff LED",
-        "x": 420,
-        "y": 1400,
-        "wires": []
-    },
-    {
-        "id": "96576387085b70a1",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/CleanRoom/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 850,
-        "y": 1040,
-        "wires": [
-            [
-                "0fd9bdac18a27ed4"
-            ]
-        ]
-    },
-    {
-        "id": "0fd9bdac18a27ed4",
-        "type": "debug",
-        "z": "0d812e09d413a274",
-        "name": "debug 20",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1080,
-        "y": 1040,
-        "wires": []
     }
 ]
