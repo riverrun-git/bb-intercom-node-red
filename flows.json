@@ -2306,183 +2306,12 @@
         "wires": []
     },
     {
-        "id": "479c1ae3e4ba294f",
-        "type": "ui_button",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "group": "58f8c24c9a9fdac1",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "label": "Clean Room",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "TOGGLE",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 250,
-        "y": 40,
-        "wires": [
-            [
-                "dd54176ef82be226"
-            ]
-        ]
-    },
-    {
-        "id": "dd54176ef82be226",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/Cleanroom/POWER",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 470,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "4c9ee92f533a9215",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Toggle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 90,
-        "y": 40,
-        "wires": [
-            [
-                "479c1ae3e4ba294f"
-            ]
-        ]
-    },
-    {
-        "id": "7e81d3d19938034f",
-        "type": "mqtt out",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "cmnd/Cleanroom/Status",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "38e902423e538381",
-        "x": 330,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "f04e5b5a9456a951",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "0",
-        "payloadType": "num",
-        "x": 100,
-        "y": 120,
-        "wires": [
-            [
-                "7e81d3d19938034f"
-            ]
-        ]
-    },
-    {
-        "id": "1b9749f66610d4c2",
-        "type": "comment",
-        "z": "0d812e09d413a274",
-        "name": "Query device status",
-        "info": "",
-        "x": 110,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "30818ba023246fe2",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Cleanroom/STATUS5",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 240,
-        "wires": [
-            [
-                "d1371af8bbfbfe26",
-                "7156af54c0405f31"
-            ]
-        ]
-    },
-    {
-        "id": "c027bcb7c1d7af8f",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "tele/Cleanroom/LWT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 180,
-        "wires": [
-            [
-                "69bce279412d9260"
-            ]
-        ]
-    },
-    {
         "id": "5986ddf13b2a0fac",
         "type": "ui_button",
         "z": "0d812e09d413a274",
         "name": "",
         "group": "58f8c24c9a9fdac1",
-        "order": 5,
+        "order": 8,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -2605,112 +2434,6 @@
         "wires": []
     },
     {
-        "id": "ccb840d2123679f0",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 3,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "{{msg.topic}}",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "Offline",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "Online",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "CleanRoom LED",
-        "x": 610,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "d1371af8bbfbfe26",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "IP",
-        "rules": [
-            {
-                "t": "set",
-                "p": "CleanRoomIP",
-                "pt": "flow",
-                "to": "payload.StatusNET.IPAddress",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 330,
-        "y": 240,
-        "wires": [
-            [
-                "7d08b6ae0b95b6ce"
-            ]
-        ]
-    },
-    {
-        "id": "69bce279412d9260",
-        "type": "change",
-        "z": "0d812e09d413a274",
-        "name": "Status",
-        "rules": [
-            {
-                "t": "set",
-                "p": "CleanRoomStatus",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 310,
-        "y": 180,
-        "wires": [
-            [
-                "7d08b6ae0b95b6ce"
-            ]
-        ]
-    },
-    {
-        "id": "7d08b6ae0b95b6ce",
-        "type": "function",
-        "z": "0d812e09d413a274",
-        "name": "Join",
-        "func": "msg.topic = flow.get('CleanRoomIP') || 'Waiting';\nmsg.payload = flow.get('CleanRoomStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 200,
-        "wires": [
-            [
-                "ccb840d2123679f0"
-            ]
-        ]
-    },
-    {
         "id": "f24ffb348434d70d",
         "type": "mqtt in",
         "z": "0d812e09d413a274",
@@ -2756,7 +2479,7 @@
         "id": "08b921146a6fe5fb",
         "type": "ui_led",
         "z": "0d812e09d413a274",
-        "order": 6,
+        "order": 9,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -2880,35 +2603,6 @@
         "wires": [
             [
                 "a60cb6d49664896a"
-            ]
-        ]
-    },
-    {
-        "id": "1e0d73a5e138efe4",
-        "type": "inject",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "props": [
-            {
-                "p": "payload.StatusNET.IPAddress",
-                "v": "Not found",
-                "vt": "str"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 190,
-        "y": 300,
-        "wires": [
-            [
-                "d1371af8bbfbfe26"
             ]
         ]
     },
@@ -3214,119 +2908,6 @@
         ]
     },
     {
-        "id": "7156af54c0405f31",
-        "type": "debug",
-        "z": "0d812e09d413a274",
-        "name": "debug 17",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "625e298bdf114840",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Cleanroom/RESULT",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "31c5a007fc103862",
-                "e270c4eae0871968"
-            ]
-        ]
-    },
-    {
-        "id": "31c5a007fc103862",
-        "type": "debug",
-        "z": "0d812e09d413a274",
-        "name": "debug 18",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "e270c4eae0871968",
-        "type": "ui_led",
-        "z": "0d812e09d413a274",
-        "order": 4,
-        "group": "58f8c24c9a9fdac1",
-        "width": 0,
-        "height": 0,
-        "label": "Clean Room Light",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "{\"POWER1\":\"Blink ON\"}",
-                "valueType": "json"
-            },
-            {
-                "color": "#ffa500",
-                "value": "ON",
-                "valueType": "str"
-            },
-            {
-                "color": "#ffa500",
-                "value": "{\"POWER1\":\"ON\"}",
-                "valueType": "json"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "Cleanroom OnOff LED",
-        "x": 420,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "4e26b26ca107c98a",
-        "type": "mqtt in",
-        "z": "0d812e09d413a274",
-        "name": "",
-        "topic": "stat/Cleanroom/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "38e902423e538381",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 420,
-        "wires": [
-            [
-                "31c5a007fc103862",
-                "e270c4eae0871968"
-            ]
-        ]
-    },
-    {
         "id": "863853af905fdd43",
         "type": "mqtt in",
         "z": "0d812e09d413a274",
@@ -3466,7 +3047,7 @@
         "id": "d8cf96821c9de6b7",
         "type": "ui_led",
         "z": "0d812e09d413a274",
-        "order": 7,
+        "order": 10,
         "group": "58f8c24c9a9fdac1",
         "width": 0,
         "height": 0,
@@ -3517,6 +3098,844 @@
             [
                 "142e98b7482bb5e5",
                 "d8cf96821c9de6b7"
+            ]
+        ]
+    },
+    {
+        "id": "479c1ae3e4ba294f",
+        "type": "ui_button",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Clean Room",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 40,
+        "wires": [
+            [
+                "dd54176ef82be226"
+            ]
+        ]
+    },
+    {
+        "id": "dd54176ef82be226",
+        "type": "mqtt out",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "cmnd/Cleanroom/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 470,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4c9ee92f533a9215",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "479c1ae3e4ba294f"
+            ]
+        ]
+    },
+    {
+        "id": "7e81d3d19938034f",
+        "type": "mqtt out",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "cmnd/Cleanroom/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 330,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f04e5b5a9456a951",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "7e81d3d19938034f"
+            ]
+        ]
+    },
+    {
+        "id": "1b9749f66610d4c2",
+        "type": "comment",
+        "z": "0d812e09d413a274",
+        "name": "Query device status",
+        "info": "",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "30818ba023246fe2",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/Cleanroom/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "d1371af8bbfbfe26",
+                "7156af54c0405f31"
+            ]
+        ]
+    },
+    {
+        "id": "c027bcb7c1d7af8f",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "tele/Cleanroom/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "69bce279412d9260"
+            ]
+        ]
+    },
+    {
+        "id": "ccb840d2123679f0",
+        "type": "ui_led",
+        "z": "0d812e09d413a274",
+        "order": 3,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "CleanRoom LED",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d1371af8bbfbfe26",
+        "type": "change",
+        "z": "0d812e09d413a274",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CleanRoomIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "7d08b6ae0b95b6ce"
+            ]
+        ]
+    },
+    {
+        "id": "69bce279412d9260",
+        "type": "change",
+        "z": "0d812e09d413a274",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CleanRoomStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "7d08b6ae0b95b6ce"
+            ]
+        ]
+    },
+    {
+        "id": "7d08b6ae0b95b6ce",
+        "type": "function",
+        "z": "0d812e09d413a274",
+        "name": "Join",
+        "func": "msg.topic = flow.get('CleanRoomIP') || 'Waiting';\nmsg.payload = flow.get('CleanRoomStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "ccb840d2123679f0"
+            ]
+        ]
+    },
+    {
+        "id": "1e0d73a5e138efe4",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "d1371af8bbfbfe26"
+            ]
+        ]
+    },
+    {
+        "id": "7156af54c0405f31",
+        "type": "debug",
+        "z": "0d812e09d413a274",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "625e298bdf114840",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/Cleanroom/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "31c5a007fc103862",
+                "e270c4eae0871968"
+            ]
+        ]
+    },
+    {
+        "id": "31c5a007fc103862",
+        "type": "debug",
+        "z": "0d812e09d413a274",
+        "name": "debug 18",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e270c4eae0871968",
+        "type": "ui_led",
+        "z": "0d812e09d413a274",
+        "order": 4,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "Clean Room Light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER1\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "Cleanroom OnOff LED",
+        "x": 420,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4e26b26ca107c98a",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/Cleanroom/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "31c5a007fc103862",
+                "e270c4eae0871968"
+            ]
+        ]
+    },
+    {
+        "id": "23d93c318121986b",
+        "type": "ui_button",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "group": "58f8c24c9a9fdac1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Wall Light",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 980,
+        "y": 500,
+        "wires": [
+            [
+                "9b2d0923ecd22ef8"
+            ]
+        ]
+    },
+    {
+        "id": "9b2d0923ecd22ef8",
+        "type": "mqtt out",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "cmnd/WallLight/POWER",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1210,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1f7ca2e93d857cb9",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "Toggle",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 830,
+        "y": 500,
+        "wires": [
+            [
+                "23d93c318121986b"
+            ]
+        ]
+    },
+    {
+        "id": "a3a942877330d2a0",
+        "type": "mqtt out",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "cmnd/WallLight/Status",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38e902423e538381",
+        "x": 1060,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9a48be45bd92a8ba",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "Status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 840,
+        "y": 580,
+        "wires": [
+            [
+                "a3a942877330d2a0"
+            ]
+        ]
+    },
+    {
+        "id": "30ef2318026ab086",
+        "type": "comment",
+        "z": "0d812e09d413a274",
+        "name": "Query device status",
+        "info": "",
+        "x": 850,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4e29e69c2253887d",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/WallLight/STATUS5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 700,
+        "wires": [
+            [
+                "66c9511eaf66a93f",
+                "dbb42f00c8d91db0"
+            ]
+        ]
+    },
+    {
+        "id": "627e399dc1e7f44b",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "tele/WallLight/LWT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 850,
+        "y": 640,
+        "wires": [
+            [
+                "b0c5e80fa7309686"
+            ]
+        ]
+    },
+    {
+        "id": "8d6f81a1c8dba0da",
+        "type": "ui_led",
+        "z": "0d812e09d413a274",
+        "order": 6,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "{{msg.topic}}",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "Offline",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "Online",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "WallLight LED",
+        "x": 1340,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "66c9511eaf66a93f",
+        "type": "change",
+        "z": "0d812e09d413a274",
+        "name": "IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WallLightIP",
+                "pt": "flow",
+                "to": "payload.StatusNET.IPAddress",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 700,
+        "wires": [
+            [
+                "0d3fa00fc3ecf431"
+            ]
+        ]
+    },
+    {
+        "id": "b0c5e80fa7309686",
+        "type": "change",
+        "z": "0d812e09d413a274",
+        "name": "Status",
+        "rules": [
+            {
+                "t": "set",
+                "p": "WallLightStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 640,
+        "wires": [
+            [
+                "0d3fa00fc3ecf431"
+            ]
+        ]
+    },
+    {
+        "id": "0d3fa00fc3ecf431",
+        "type": "function",
+        "z": "0d812e09d413a274",
+        "name": "Join",
+        "func": "msg.topic = flow.get('WallLightIP') || 'Waiting';\nmsg.payload = flow.get('WallLightStatus') === 'Online' ? 'Online' : 'Offline';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 660,
+        "wires": [
+            [
+                "8d6f81a1c8dba0da"
+            ]
+        ]
+    },
+    {
+        "id": "13e798bc0b0e058e",
+        "type": "inject",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.StatusNET.IPAddress",
+                "v": "Not found",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 930,
+        "y": 760,
+        "wires": [
+            [
+                "66c9511eaf66a93f"
+            ]
+        ]
+    },
+    {
+        "id": "dbb42f00c8d91db0",
+        "type": "debug",
+        "z": "0d812e09d413a274",
+        "name": "debug 25",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "1c82c0b4f769fb6f",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/WallLight/RESULT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 860,
+        "y": 820,
+        "wires": [
+            [
+                "039dc02bb47e02ac",
+                "8c433a26b52c7244"
+            ]
+        ]
+    },
+    {
+        "id": "039dc02bb47e02ac",
+        "type": "debug",
+        "z": "0d812e09d413a274",
+        "name": "debug 26",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "8c433a26b52c7244",
+        "type": "ui_led",
+        "z": "0d812e09d413a274",
+        "order": 7,
+        "group": "58f8c24c9a9fdac1",
+        "width": 0,
+        "height": 0,
+        "label": "Wall Light",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "{\"POWER1\":\"Blink ON\"}",
+                "valueType": "json"
+            },
+            {
+                "color": "#ffa500",
+                "value": "ON",
+                "valueType": "str"
+            },
+            {
+                "color": "#ffa500",
+                "value": "{\"POWER1\":\"ON\"}",
+                "valueType": "json"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "WallLight OnOff LED",
+        "x": 1160,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "e7d3e9aeef05421c",
+        "type": "mqtt in",
+        "z": "0d812e09d413a274",
+        "name": "",
+        "topic": "stat/WallLight/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "38e902423e538381",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 860,
+        "y": 880,
+        "wires": [
+            [
+                "039dc02bb47e02ac",
+                "8c433a26b52c7244"
             ]
         ]
     }
